@@ -1,43 +1,45 @@
 import React from 'react';
-import {View, Text, Button} from 'react-native';
-// import Icon from 'react-native-vector-icons/Ionicons';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import styled from 'styled-components/native';
-import { Store } from '../redux/store';
-import { setName } from '../redux/actions';
-import { saveName } from '../firbase/prueba.firbase';
+import {Conteiner,  Title, TxtInfo} from '../assets/styleds';
+import {CustomInput, CustomButton} from '../components';
+import {useForm} from 'react-hook-form';
+import {EMAIL_REGEX} from '../utils/validation_function';
+const tryValidate = data => {
+  console.log(data);
+};
 
-const Abr = styled.View`
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  width: 99%;
-  height: 50px;
-  padding: 0px 70px 0px 10px;
-  background: red;
-  border: solid 3px;
-  border-color: black;
-  border-radius: 12px;
-  margin: 0% 0% 7% 0%;
-`;
-
-const Login = () => {
+const Login = ({navigation}) => {
+  const {control, handleSubmit} = useForm();
   return (
-    <Abr>
-      <Icon name={"user"} size={20} color={"#198654"}/>
-      <Text> login.screen </Text>
-      {/* <Icon name="battery-charging-outline" size={50}></Icon> */}
-      {/* <Icon name={"md-reorder-two"} color="#4F8EF7" size={300} /> */}
-      <Button
-      onPress={()=>{
-        Store.dispatch(setName('Nombre'))
-        console.log(Store.getState().userData.name)
-        saveName()
-      }}
-      title={'Touch me'}
-      >
-      </Button>
-    </Abr>
+      <Conteiner>
+        <Title>Mental Colima</Title>
+        <CustomInput
+          name="email"
+          rules={{
+            required: 'Falta ingresar el email',
+            pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
+          }}
+          control={control}
+          placeholder="Correo electronico"
+          icon="envelope"
+        />
+        <CustomInput
+          name="pswrd"
+          rules={{required: 'Falta ingresar la contraseña'}}
+          control={control}
+          placeholder="Contraseña"
+          icon="lock"
+        />
+        <CustomButton
+          title="INICIAR SESIÓN"
+          onPress={handleSubmit(tryValidate)}
+        />
+        <TxtInfo>- ¿No tienes cuenta? -</TxtInfo>
+        <CustomButton
+          title="CREAR CUENTA"
+          onPress={() => navigation.navigate('Path')}
+          bg="#FFDEDC"
+        />
+      </Conteiner>
   );
 };
 export default Login;
