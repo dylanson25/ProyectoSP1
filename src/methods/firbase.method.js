@@ -12,6 +12,7 @@ export const firbaseMethods = {
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
+              // navigation
             )
             .catch(error => {
               if (error.code === 'auth/email-already-in-use') {

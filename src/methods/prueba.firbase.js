@@ -2,9 +2,8 @@ import firestore from '@react-native-firebase/firestore'
 import {firbaseMethods} from '../methods/firbase.method';
 
 const tryValidate = data => {
-  // firbaseMethods.signInWithNameEmailAndPassword('_', data)
-  // console.log(data);
-  const infoPrueba = {
+    // console.log(data);
+    const infoPrueba = {
     Cedula_1: '0023456',
     Cedula_2: '0023457',
     Cedula_3: '0023459',
@@ -14,11 +13,8 @@ const tryValidate = data => {
     pswrd: 'Katara?123456',
     secondName: 'ruiz',
     userName: 'Maria elena',
-  };
-  
-  const cedulas = () => Object.keys(infoPrueba).filter(val => val.match(/Cedula_/)).map((item)=> infoPrueba[item]);
-  
-  console.log(Object.keys(infoPrueba).filter(val => val.match(/Cedula_/)).map((item)=> infoPrueba[item]));
+};
+firbaseMethods.signInWithNameEmailAndPassword('_', infoPrueba)
 };
 
 export const saveName = () => {
