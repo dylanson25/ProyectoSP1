@@ -15,7 +15,7 @@ import {
 } from '../utils/validation_function';
 
 const tryValidate = data => {
-  console.log(data);
+  console.log(data)
 };
 
 const Register = ({route}) => {
@@ -65,7 +65,9 @@ const Register = ({route}) => {
                 value: 7,
                 message: 'La cedula debe contener 7 digitos',
               },
-              validate: value => verifyCedula(value, fullName) || 'Los datos de la cedula no coinciden con sus datos'
+              validate: value =>
+                verifyCedula(value, fullName) ||
+                'Los datos de la cedula no coinciden con sus datos',
             }}
             name="cedula"
             control={control}

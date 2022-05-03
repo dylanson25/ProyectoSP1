@@ -1,5 +1,5 @@
 import React from "react";
-import { Conteiner, SubTitle, Title, TxtInfo } from "../assets/styleds";
+import { Conteiner, Title, TxtInfo } from "../assets/styleds";
 import { CustomButton } from "../components";
 
 const Path =({navigation})=>{
