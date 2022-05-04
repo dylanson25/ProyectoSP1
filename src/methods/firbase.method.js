@@ -12,7 +12,7 @@ export const firbaseMethods = {
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
-              // navigation
+              navigation.navigate('Perfil')
             )
             .catch(error => {
               if (error.code === 'auth/email-already-in-use') {
@@ -22,13 +22,13 @@ export const firbaseMethods = {
         });
     });
   },
-  logInWithEmailAndPassword: (email, pswrd) => {
+  logInWithEmailAndPassword: (email, pswrd, navigation) => {
     return new Promise((resolve, reject) => {
       auth()
         .signInWithEmailAndPassword(email, pswrd)
         .then(() => {
           resolve('User signed in!');
-          // navigation.navigate('Home');
+          navigation.navigate('Perfil');
         })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {

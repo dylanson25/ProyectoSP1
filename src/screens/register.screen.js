@@ -13,9 +13,14 @@ import {
   verifyCedula,
   EMAIL_REGEX,
 } from '../utils/validation_function';
+import {firbaseMethods} from '../methods';
 
-const tryValidate = data => {
-  console.log(data)
+const handleSignUp = (navigation, data) => {
+  console.log(data);
+  firbaseMethods
+    .signInWithNameEmailAndPassword(navigation, data)
+    .then(() => console.log(true))
+    .catch(err => console.log(err));
 };
 
 const Register = ({route}) => {

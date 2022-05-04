@@ -5,9 +5,9 @@ import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../utils/validation_function';
 import {firbaseMethods} from '../methods';
 import {useAuthChecker} from '../hooks/firbase';
-const tryValidate = ({email, pswrd}) => {
+const handleLogIn = (navigation, {email, pswrd}) => {
   firbaseMethods
-    .logInWithEmailAndPassword(email, pswrd)
+    .logInWithEmailAndPassword(email, pswrd, navigation)
     .then(() => {})
     .catch(err => console.log(err));
 };
@@ -37,12 +37,12 @@ const Login = ({navigation}) => {
       />
       <CustomButton
         title="INICIAR SESIÓN"
-        onPress={handleSubmit(tryValidate)}
+        onPress={handleSubmit(data => handleLogIn(navigation, data))}
       />
       <TxtInfo>- ¿No tienes cuenta? -</TxtInfo>
       <CustomButton
         title="CREAR CUENTA"
-        onPress={() => { 
+        onPress={() => {
           navigation.navigate('Path');
         }}
         bg="#FFDEDC"
