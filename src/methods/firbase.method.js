@@ -12,7 +12,7 @@ export const firbaseMethods = {
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
-              // navigation
+              navigation.navigate('Perfil')
             )
             .catch(error => {
               if (error.code === 'auth/email-already-in-use') {
@@ -22,13 +22,13 @@ export const firbaseMethods = {
         });
     });
   },
-  logInWithEmailAndPassword: (email, password, navigation) => {
+  logInWithEmailAndPassword: (email, pswrd, navigation) => {
     return new Promise((resolve, reject) => {
       auth()
-        .signInWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(email, pswrd)
         .then(() => {
           resolve('User signed in!');
-          navigation.navigate('Home');
+          navigation.navigate('Perfil');
         })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {
@@ -40,6 +40,9 @@ export const firbaseMethods = {
           }
         });
     });
+  },
+  LogOut: navigation => {
+    auth().signOut().then(navigation.navigate('Login'));
   },
   getProfile: () => {
     return firestore()

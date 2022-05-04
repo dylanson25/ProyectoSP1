@@ -8,6 +8,7 @@ export const CustomBtn = styled.TouchableOpacity`
   height: 48px;
   background: ${props => props.bg || '#F1B5B5'};
   border-radius: 10px;
+  elevation: 6;
 `;
 export const TxtBtn = styled.Text`
   font-weight: 400;
