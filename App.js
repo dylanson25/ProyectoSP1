@@ -4,11 +4,9 @@ import Navigate from './src/components/navigation/navigate';
 import whitRedux from './src/redux/index'
 const App = () => {
   return (
-    
       <NavigationContainer>
         <Navigate />
       </NavigationContainer>
-
   );
 };
 
