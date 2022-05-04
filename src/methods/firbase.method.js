@@ -41,13 +41,24 @@ export const firbaseMethods = {
         });
     });
   },
+  getProfile: () => {
+    return firestore()
+      .collection('users')
+      .doc(auth().currentUser.uid)
+      .get()
+      .then(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          return documentSnapshot.data();
+        }
+      });
+  },
 };
 
 const getDataCedulas = data =>
   Object.keys(data)
     .filter(val => val.match(/Cedula_/))
     .map(item => data[item]);
-    
+
 const informationData = (doc, data) => {
   const {email, userName, firstName, secondName} = data;
   if (doc === 'CommonUser') {
