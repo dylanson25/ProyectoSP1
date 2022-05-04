@@ -22,13 +22,13 @@ export const firbaseMethods = {
         });
     });
   },
-  logInWithEmailAndPassword: (email, password, navigation) => {
+  logInWithEmailAndPassword: (email, pswrd) => {
     return new Promise((resolve, reject) => {
       auth()
-        .signInWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(email, pswrd)
         .then(() => {
           resolve('User signed in!');
-          navigation.navigate('Home');
+          // navigation.navigate('Home');
         })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {
@@ -40,6 +40,9 @@ export const firbaseMethods = {
           }
         });
     });
+  },
+  LogOut: navigation => {
+    auth().signOut().then(navigation.navigate('Login'));
   },
   getProfile: () => {
     return firestore()
