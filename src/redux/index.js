@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import configureStore from "./configureStore";
 
 const whitRedux = PageComponent => {
-    const whitRedux = ({initialReduxState, ...props})=> {
+    const WhitRedux = ({initialReduxState, ...props})=> {
         const store = configureStore();
         return (
             <Provider store={store}>
@@ -11,6 +11,7 @@ const whitRedux = PageComponent => {
             </Provider>
         )
     }
+    return  WhitRedux;
 }
 
 export default whitRedux;
