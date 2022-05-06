@@ -1,5 +1,5 @@
 import React from 'react';
-import {Conteiner, Title, TxtInfo} from '../assets/styleds';
+import {Container, Title, TxtInfo} from '../assets/styleds';
 import {CustomInput, CustomButton} from '../components';
 import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../utils/validation_function';
@@ -16,7 +16,7 @@ const Login = ({navigation}) => {
   const {control, handleSubmit} = useForm();
   useAuthChecker(navigation);
   return (
-    <Conteiner>
+    <Container>
       <Title>Mental Colima</Title>
       <CustomInput
         name="email"
@@ -47,7 +47,7 @@ const Login = ({navigation}) => {
         }}
         bg="#FFDEDC"
       />
-    </Conteiner>
+    </Container>
   );
 };
 export default Login;

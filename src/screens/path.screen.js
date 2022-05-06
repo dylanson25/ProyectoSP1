@@ -1,10 +1,10 @@
 import React from "react";
-import { Conteiner, Title, TxtInfo } from "../assets/styleds";
+import { Container, Title, TxtInfo } from "../assets/styleds";
 import { CustomButton } from "../components";
 
 const Path =({navigation})=>{
     return(
-        <Conteiner>
+        <Container>
             <Title>Salud Mental</Title>
             <TxtInfo>¿Cual el papel que desempeñaras?</TxtInfo>
             <CustomButton title='Usuario Comun' onPress={()=>{
@@ -14,7 +14,7 @@ const Path =({navigation})=>{
             <CustomButton title='Profecional de la salud' bg={'#FFDEDC'} onPress={()=>{
                 navigation.navigate('Register', true)
             }}/>
-        </Conteiner>
+        </Container>
     )
 }
 export default Path;
