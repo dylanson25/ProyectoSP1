@@ -8,11 +8,11 @@ export const firbaseMethods = {
         .createUserWithEmailAndPassword(data.email, data.pswrd)
         .then(({user}) => {
           user
-            .updateProfile({displayName: 'name'}) //revisar
+            .updateProfile({displayName: data.Nombres}) 
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
-              navigation.navigate('Perfil')
+              navigation.navigate('Profile'),
             )
             .catch(error => {
               if (error.code === 'auth/email-already-in-use') {
@@ -28,7 +28,7 @@ export const firbaseMethods = {
         .signInWithEmailAndPassword(email, pswrd)
         .then(() => {
           resolve('User signed in!');
-          navigation.navigate('Perfil');
+          navigation.navigate('Profile');
         })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {
@@ -66,6 +66,7 @@ const informationData = (doc, data) => {
   const {email, userName, firstName, secondName} = data;
   if (doc === 'CommonUser') {
     return {
+      type: 'CommonUser',
       Nombres: userName || auth().currentUser.displayName,
       Email: email || auth().currentUser.email,
       PrimerApellido: firstName,
@@ -73,6 +74,7 @@ const informationData = (doc, data) => {
     };
   } else {
     return {
+      type: 'ProfessionalUser',
       Nombres: userName || auth().currentUser.displayName,
       Email: email || auth().currentUser.email,
       PrimerApellido: firstName,
@@ -83,17 +85,21 @@ const informationData = (doc, data) => {
 };
 
 const createAditionalData = data => {
-  const document = data.Cedula_1 ? 'ProfessionalUser' : 'CommonUser';
   firestore()
-    .collection(document)
+    .collection('users')
     .doc(auth().currentUser.uid)
     .get()
     .then(response => {
       if (!response.exists) {
         firestore()
-          .collection(document)
+          .collection('users')
           .doc(auth().currentUser.uid)
-          .set(informationData(document, data));
+          .set(
+            informationData(
+              data.Cedula_1 ? 'ProfessionalUser' : 'CommonUser',
+              data,
+            ),
+          );
       }
     });
 };

@@ -15,7 +15,7 @@ export const SubTitle = styled.Text`
   color: #444444;
 `;
 
-export const Conteiner = styled.View` 
+export const Container = styled.View` 
   height: 100%;
   margin: 0;
   justify-content: center;

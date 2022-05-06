@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Conteiner,
+  Container,
   AcomodingBox,
   ScrollView,
   Title,
@@ -23,13 +23,13 @@ const handleSignUp = (navigation, data) => {
     .catch(err => console.log(err));
 };
 
-const Register = ({route}) => {
+const Register = ({navigation, route}) => {
   const {control, handleSubmit, watch, reset} = useForm();
   const pwd = watch('pswrd');
   const fullName = watch(['userName', 'firstName', 'secondName']);
   return (
     <ScrollView>
-      <Conteiner>
+      <Container>
         <Title>Mental Colima</Title>
         <SubTitle>Profesional</SubTitle>
         <CustomInput
@@ -109,10 +109,10 @@ const Register = ({route}) => {
           icon="lock"
         />
         <CustomButton
-          onPress={handleSubmit(tryValidate)}
+          onPress={handleSubmit(value => handleSignUp(navigation, value))}
           title="CREAR CUENTA"
         />
-      </Conteiner>
+      </Container>
     </ScrollView>
   );
 };
