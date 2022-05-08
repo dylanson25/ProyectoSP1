@@ -42,9 +42,7 @@ const Login = ({navigation}) => {
       <TxtInfo>- ¿No tienes cuenta? -</TxtInfo>
       <CustomButton
         title="CREAR CUENTA"
-        onPress={() => {
-          navigation.navigate('Path');
-        }}
+        onPress={() => navigation.navigate('Path')}
         bg="#FFDEDC"
       />
     </Container>

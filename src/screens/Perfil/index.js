@@ -1,4 +1,3 @@
-//fghjkl
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getProfile} from '../../redux/actions'
@@ -8,3 +7,4 @@ export const Profile = connect(
   ({user: {userData}}) => ({userData}),
   dispatch => bindActionCreators({getProfile}, dispatch),
 )(ProfileComponent);
+

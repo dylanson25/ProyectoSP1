@@ -15,9 +15,7 @@ export const ProfileComponent = ({navigation, userData,getProfile})=>{
             <Title>{userData.SegundoApellido}</Title>
             <Title>{userData.Email}</Title>
             <Title>{userData.Cedulas}</Title>
-            <CustomButton title='Cerrar seción' onPress={()=> firbaseMethods.LogOut(navigation)} />
-
-        
+            <CustomButton title='Cerrar seción' onPress={()=> firbaseMethods.LogOut(navigation)} />        
         </Container>
     )
 

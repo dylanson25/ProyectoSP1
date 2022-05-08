@@ -1,5 +1,6 @@
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import {Alert} from 'react-native';
 
 export const firbaseMethods = {
   signInWithNameEmailAndPassword: (navigation, data) => {
@@ -8,7 +9,7 @@ export const firbaseMethods = {
         .createUserWithEmailAndPassword(data.email, data.pswrd)
         .then(({user}) => {
           user
-            .updateProfile({displayName: data.Nombres}) 
+            .updateProfile({displayName: data.Nombres})
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
@@ -16,6 +17,7 @@ export const firbaseMethods = {
             )
             .catch(error => {
               if (error.code === 'auth/email-already-in-use') {
+                Alert.alert('El correo ya esta eb uso');
                 reject('That email address is already in use!');
               }
             });
@@ -32,10 +34,13 @@ export const firbaseMethods = {
         })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {
+            Alert.alert('La contraseña y el correo no coinciden');
             reject('Wrong email/password');
           } else if (error.code === 'auth/invalid-email') {
+            Alert.alert('El correo no es valido');
             reject('That email address is invalid!');
           } else if (error.code === 'auth/user-not-found') {
+            Alert.alert('El correo no esta registrado');
             reject('User not found');
           }
         });
