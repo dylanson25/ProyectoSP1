@@ -18,4 +18,21 @@ const cedulaNumber = async cedula => {
     return false;
   }
 };
-export {cedulaNumber};
+const cedulaPrueba = async (cedula, nivel) => {
+  try {
+    const {
+      data: { items },
+    } = await axios({
+      method: 'GET',
+      url: `${baseURL}json={"maxResult":"10","nombre":"","paterno":"","materno":"","idCedula":"${cedula}"}`,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+      },
+    });
+
+    return (nivel == items[0].tipo ? items[0] : items[1]) 
+  } catch (e) {
+    return false;
+  }
+};
+export {cedulaNumber, cedulaPrueba};
