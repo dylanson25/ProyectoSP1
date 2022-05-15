@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Container, Title, TxtInfo} from '../assets/styleds';
-import {CustomInput, CustomButton} from '../components';
+import {CustomInput, CustomButton, RadioButton} from '../components';
 import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../utils/validation_function';
 import {firbaseMethods} from '../methods';
 import {useAuthChecker} from '../hooks/firbase';
+
+const nivel = [{value: 'A1'}, {value: 'C1'}];
 const handleLogIn = (navigation, {email, pswrd}) => {
   firbaseMethods
     .logInWithEmailAndPassword(email, pswrd, navigation)
@@ -13,10 +15,13 @@ const handleLogIn = (navigation, {email, pswrd}) => {
 };
 
 const Login = ({navigation}) => {
+  const [option, setOption] = useState(null);
   const {control, handleSubmit} = useForm();
   useAuthChecker(navigation);
   return (
     <Container>
+      <RadioButton data={nivel} onSelect={(value) => setOption(value)} />
+      
       <Title>Mental Colima</Title>
       <CustomInput
         name="email"

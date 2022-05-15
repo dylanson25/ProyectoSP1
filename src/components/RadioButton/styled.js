@@ -1,0 +1,31 @@
+import {StyleSheet} from 'react-native';
+import styled from 'styled-components/native';
+
+export const Conteiner = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+`;
+
+export const styles = StyleSheet.create({
+  option: {
+    fontSize: 20,
+    color: 'black',
+    textAlign: 'center',
+  },
+  circle: {
+    margin: 6,
+    padding: 10,
+    borderRadius: 10,
+  },
+  textSelect: {
+    textDecorationLine: 'underline',
+  },
+  unselected: {
+    backgroundColor: 'red',
+  },
+  selected: {
+    backgroundColor: 'blue',
+  },
+});

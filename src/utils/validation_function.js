@@ -29,7 +29,6 @@ const pswrd_rules = {
 //   "idCedula": "0023456"
 //   "Maria Elena Cardenas Ruiz
 const verifyCedula = async (cedula, nombreForm) => {
-  console.log(!!nombreForm[0])
   if (!!nombreForm[0] && !!nombreForm[1]) {
     let data = await cedulaNumber(cedula);
     const [nombre, paterno, materno] = nombreForm.map(value => value ? removeAcents(value).toUpperCase() : false);

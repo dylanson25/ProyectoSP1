@@ -20,6 +20,7 @@ export const Input = styled.View`
 export const TxtInfo = styled.Text`
   font-weight: bold;
   color: ${props => props.color || '#444444'};
+  font-size: 15px;
 `;
 
 export const TxtCont = styled.View`

@@ -3,12 +3,12 @@ import { SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar } from
 
 const DATA = [];
 
-const getItem = (data, index) => ({
+const getItem = (_, index) => ({
   id: index+1,
   title: `Cedula_${index+1}`
 });
 
-const getItemCount = (data) => 50;
+const getItemCount = () => 50;
 
 const Item = ({ title }) => (
   <View style={styles.item}>
