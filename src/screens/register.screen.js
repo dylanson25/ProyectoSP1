@@ -1,18 +1,8 @@
 import React from 'react';
-import {
-  Container,
-  AcomodingBox,
-  ScrollView,
-  Title,
-  SubTitle,
-} from '../assets/styleds';
+import { Container, AcomodingBox, ScrollView, Title, SubTitle } from '../assets/styleds';
 import {CustomInput, CustomButton, InputCedula} from '../components';
 import {useForm} from 'react-hook-form';
-import {
-  pswrd_rules,
-  verifyCedula,
-  EMAIL_REGEX,
-} from '../utils/validation_function';
+import { pswrd_rules, verifyCedula, EMAIL_REGEX } from '../utils/validation_function';
 import {firbaseMethods} from '../methods';
 
 const handleSignUp = (navigation, data) => {
@@ -62,14 +52,6 @@ const Register = ({navigation, route}) => {
           <InputCedula
             rules={{
               required: 'Falta ingresar la cedula',
-              maxLength: {
-                value: 7,
-                message: 'La cedula debe contener 7 digitos',
-              },
-              minLength: {
-                value: 7,
-                message: 'La cedula debe contener 7 digitos',
-              },
               validate: value =>
                 verifyCedula(value, fullName) ||
                 'Los datos de la cedula no coinciden con sus datos',

@@ -17,7 +17,7 @@ export const RadioButton = ({data, onSelect}) => {
               
               onPress={() => selectHandler(item.value)}>
 
-                <Icon name={item.value === userOption ? 'certificate' : 'circle'} size={20} color={'black'} />
+                <Icon name={item.value === userOption ? 'certificate' : 'circle'}  size={15} color={'black'} />
               </Pressable>
             <Text
               style={[

@@ -34,6 +34,14 @@ export const TitleCont = styled.View`
 `;
 
 export const CedulaConteiner = styled.View`
+  flex-direction: row;
+  align-items: center;
   margin-top: 3px;
-  margin-bottom: 3px;
+  margin-bottom: 6px;
+  width: 100%;
 `
+export const InputView = styled.View`
+  width: 75%;
+  margin-left: 5px;
+`
+

@@ -5,7 +5,7 @@ export const Conteiner = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  margin-left: 4px;
 `;
 
 export const styles = StyleSheet.create({
