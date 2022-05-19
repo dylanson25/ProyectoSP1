@@ -66,7 +66,10 @@ const Register = ({navigation, route}) => {
         <CustomInput
           rules={{
             required: 'Falta ingresar el email',
-            pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
+            pattern: {value: EMAIL_REGEX, message: 'Email invalido',  minLength: {
+              value: 7,
+              message: 'La cedula debe contener al menos 7 caracteres',
+            },},
           }}
           name="email"
           control={control}

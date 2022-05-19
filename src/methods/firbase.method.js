@@ -28,7 +28,8 @@ export const firbaseMethods = {
     return new Promise((resolve, reject) => {
       auth()
         .signInWithEmailAndPassword(email, pswrd)
-        .then(() => {
+        .then(response => {
+          console.log(response);
           resolve('User signed in!');
           navigation.navigate('Profile');
         })
@@ -60,7 +61,30 @@ export const firbaseMethods = {
         }
       });
   },
+  verifyUser: () => {
+    var user = auth().currentUser;
+    user
+      .sendEmailVerification()
+      .then(function () {
+        // Email sent.
+      })
+      .catch(function (error) {
+        // An error happened.
+      });
+  },
 };
+
+/**
+ * function verificar() {
+    var user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function () {
+        // Email sent.
+    }).catch(function (error) {
+        // An error happened.
+    });
+}
+ * 
+ */
 
 const getDataCedulas = data =>
   Object.keys(data)
