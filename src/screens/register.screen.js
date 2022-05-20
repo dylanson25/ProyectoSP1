@@ -6,7 +6,6 @@ import { pswrd_rules, verifyCedula, EMAIL_REGEX } from '../utils/validation_func
 import {firbaseMethods} from '../methods';
 
 const handleSignUp = (navigation, data) => {
-  console.log(data);
   firbaseMethods
     .signInWithNameEmailAndPassword(navigation, data)
     .then(() => console.log(true))

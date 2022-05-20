@@ -2,12 +2,14 @@ import React, {useEffect} from "react";
 import { Container, Title } from "../../assets/styleds";
 import {CustomButton} from '../../components'
 import {firbaseMethods} from '../../methods'
+import auth from '@react-native-firebase/auth';
+
 export const ProfileComponent = ({navigation, userData,getProfile})=>{
     useEffect(() => {
         getProfile();
-    }, [])
-    return (
-        <Container>
+    }, [])  
+    return (  
+        <Container> 
             <Title>Perfil</Title>
             <Title>{userData.type}</Title>
             <Title>{userData.Nombres}</Title>
@@ -18,7 +20,5 @@ export const ProfileComponent = ({navigation, userData,getProfile})=>{
             <CustomButton title='Cerrar seción' onPress={()=> firbaseMethods.LogOut(navigation)} />        
         </Container>
     )
-
-
-}
-
+} 
+ 

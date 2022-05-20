@@ -13,7 +13,7 @@ export const firbaseMethods = {
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
-              navigation.navigate('Profile'),
+              verifyUser(navigation),
             )
             .catch(error => {
               if (error.code === 'auth/email-already-in-use') {
@@ -29,7 +29,6 @@ export const firbaseMethods = {
       auth()
         .signInWithEmailAndPassword(email, pswrd)
         .then(response => {
-          console.log(response);
           resolve('User signed in!');
           navigation.navigate('Profile');
         })
@@ -50,8 +49,8 @@ export const firbaseMethods = {
   LogOut: navigation => {
     auth().signOut().then(navigation.navigate('Login'));
   },
-  getProfile: () => {
-    return firestore()
+  getProfile: async () => {
+    return await firestore()
       .collection('users')
       .doc(auth().currentUser.uid)
       .get()
@@ -59,21 +58,22 @@ export const firbaseMethods = {
         if (documentSnapshot.exists) {
           return documentSnapshot.data();
         }
-      });
-  },
-  verifyUser: () => {
-    var user = auth().currentUser;
-    user
-      .sendEmailVerification()
-      .then(function () {
-        // Email sent.
       })
-      .catch(function (error) {
-        // An error happened.
-      });
+      .catch(console.log);
   },
 };
 
+const verifyUser = (navigation) => {
+ const user = auth().currentUser;
+  user
+    .sendEmailVerification()
+    .then(() => {
+      navigation.navigate('Verify');
+    })
+    .catch((error)=> {
+      console.log(error)
+    });
+};
 /**
  * function verificar() {
     var user = firebase.auth().currentUser;
