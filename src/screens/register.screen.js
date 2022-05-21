@@ -6,7 +6,6 @@ import { pswrd_rules, verifyCedula, EMAIL_REGEX } from '../utils/validation_func
 import {firbaseMethods} from '../methods';
 
 const handleSignUp = (navigation, data) => {
-  console.log(data);
   firbaseMethods
     .signInWithNameEmailAndPassword(navigation, data)
     .then(() => console.log(true))
@@ -66,7 +65,10 @@ const Register = ({navigation, route}) => {
         <CustomInput
           rules={{
             required: 'Falta ingresar el email',
-            pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
+            pattern: {value: EMAIL_REGEX, message: 'Email invalido',  minLength: {
+              value: 7,
+              message: 'La cedula debe contener al menos 7 caracteres',
+            },},
           }}
           name="email"
           control={control}

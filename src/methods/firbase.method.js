@@ -9,11 +9,11 @@ export const firbaseMethods = {
         .createUserWithEmailAndPassword(data.email, data.pswrd)
         .then(({user}) => {
           user
-            .updateProfile({displayName: data.Nombres})
+            .updateProfile({displayName: data.userName})
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
-              navigation.navigate('Profile'),
+              verifyUser(navigation),
             )
             .catch(error => {
               if (error.code === 'auth/email-already-in-use') {
@@ -28,9 +28,15 @@ export const firbaseMethods = {
     return new Promise((resolve, reject) => {
       auth()
         .signInWithEmailAndPassword(email, pswrd)
-        .then(() => {
-          resolve('User signed in!');
-          navigation.navigate('Profile');
+        .then(({user: {emailVerified}}) => {
+          console.log(emailVerified);
+          if (emailVerified) {
+            resolve('User signed in!');
+            navigation.navigate('Profile');
+          } else {
+            resolve('Email user is not verify!');
+            verifyUser(navigation);
+          }
         })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {
@@ -49,8 +55,8 @@ export const firbaseMethods = {
   LogOut: navigation => {
     auth().signOut().then(navigation.navigate('Login'));
   },
-  getProfile: () => {
-    return firestore()
+  getProfile: async () => {
+    return await firestore()
       .collection('users')
       .doc(auth().currentUser.uid)
       .get()
@@ -58,8 +64,21 @@ export const firbaseMethods = {
         if (documentSnapshot.exists) {
           return documentSnapshot.data();
         }
-      });
+      })
+      .catch(console.log);
   },
+};
+
+const verifyUser = navigation => {
+  const user = auth().currentUser;
+  user
+    .sendEmailVerification()
+    .then(() => {
+      navigation.navigate('Verify');
+    })
+    .catch(error => {
+      console.log(error);
+    });
 };
 
 const getDataCedulas = data =>

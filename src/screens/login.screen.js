@@ -5,12 +5,10 @@ import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../utils/validation_function';
 import {firbaseMethods} from '../methods';
 import {useAuthChecker} from '../hooks/firbase';
-
+ 
 const handleLogIn = (navigation, {email, pswrd}) => {
   firbaseMethods
-    .logInWithEmailAndPassword(email, pswrd, navigation)
-    .then(() => {})
-    .catch(err => console.log(err));
+    .logInWithEmailAndPassword(email, pswrd, navigation).catch(err => console.log(err));
 };
 
 const Login = ({navigation}) => {
