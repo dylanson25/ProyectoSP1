@@ -1,17 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { Container } from '../assets/styleds'
-import {Text} from 'react-native'
-import { useAuthVerify } from "../hooks/firbase";
-import auth from '@react-native-firebase/auth'
+import { useAuthChecker } from "../hooks/firbase";
+import { MessageToVerify } from "../components";
 
-
-export const Verify = ({navigation}) => {
-    useAuthVerify(navigation)
-
-    console.log(auth().currentUser.emailVerified)
+const Verify = ({navigation}) => {
+    useAuthChecker(navigation)
+    
     return(
-        <Container>  
-            <Text>Verify user</Text>
+        <Container> 
+            <MessageToVerify navigation={navigation} />
         </Container>
-    )
+    ) 
 }
+export default Verify;

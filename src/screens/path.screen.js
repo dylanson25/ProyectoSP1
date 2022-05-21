@@ -11,7 +11,7 @@ const Path =({navigation})=>{
                
                 navigation.navigate('Register', false)
             }}/>
-            <CustomButton title='Profecional de la salud' bg={'#FFDEDC'} onPress={()=>{
+            <CustomButton title='Profesional de la salud' bg={'#FFDEDC'} onPress={()=>{
                 navigation.navigate('Register', true)
             }}/>
         </Container>

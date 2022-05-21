@@ -9,7 +9,7 @@ export const firbaseMethods = {
         .createUserWithEmailAndPassword(data.email, data.pswrd)
         .then(({user}) => {
           user
-            .updateProfile({displayName: data.Nombres})
+            .updateProfile({displayName: data.userName})
             .then(
               () => resolve('User created & signed in'),
               createAditionalData(data),
@@ -65,10 +65,9 @@ export const firbaseMethods = {
 
 const verifyUser = (navigation) => {
  const user = auth().currentUser;
-  user
-    .sendEmailVerification()
+  user.sendEmailVerification()
     .then(() => {
-      navigation.navigate('Verify');
+      navigation.navigate('Verify')
     })
     .catch((error)=> {
       console.log(error)
