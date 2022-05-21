@@ -8,9 +8,7 @@ import {useAuthChecker} from '../hooks/firbase';
  
 const handleLogIn = (navigation, {email, pswrd}) => {
   firbaseMethods
-    .logInWithEmailAndPassword(email, pswrd, navigation)
-    .then(() => {})
-    .catch(err => console.log(err));
+    .logInWithEmailAndPassword(email, pswrd, navigation).catch(err => console.log(err));
 };
 
 const Login = ({navigation}) => {

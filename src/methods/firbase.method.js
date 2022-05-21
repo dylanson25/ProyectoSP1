@@ -28,9 +28,15 @@ export const firbaseMethods = {
     return new Promise((resolve, reject) => {
       auth()
         .signInWithEmailAndPassword(email, pswrd)
-        .then(response => {
-          resolve('User signed in!');
-          navigation.navigate('Profile');
+        .then(({user: {emailVerified}}) => {
+          console.log(emailVerified);
+          if (emailVerified) {
+            resolve('User signed in!');
+            navigation.navigate('Profile');
+          } else {
+            resolve('Email user is not verify!');
+            verifyUser(navigation);
+          }
         })
         .catch(error => {
           if (error.code === 'auth/wrong-password') {
@@ -63,27 +69,17 @@ export const firbaseMethods = {
   },
 };
 
-const verifyUser = (navigation) => {
- const user = auth().currentUser;
-  user.sendEmailVerification()
+const verifyUser = navigation => {
+  const user = auth().currentUser;
+  user
+    .sendEmailVerification()
     .then(() => {
-      navigation.navigate('Verify')
+      navigation.navigate('Verify');
     })
-    .catch((error)=> {
-      console.log(error)
+    .catch(error => {
+      console.log(error);
     });
 };
-/**
- * function verificar() {
-    var user = firebase.auth().currentUser;
-    user.sendEmailVerification().then(function () {
-        // Email sent.
-    }).catch(function (error) {
-        // An error happened.
-    });
-}
- * 
- */
 
 const getDataCedulas = data =>
   Object.keys(data)

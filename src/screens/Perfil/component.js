@@ -5,6 +5,7 @@ import {Text} from 'react-native'
 import {firbaseMethods} from '../../methods';
 
 
+
 export const ProfileComponent = ({navigation, userData, getProfile}) => {
     useEffect(() => {
         getProfile();
@@ -25,3 +26,4 @@ export const ProfileComponent = ({navigation, userData, getProfile}) => {
     </Container>
   );
 };
+
