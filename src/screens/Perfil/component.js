@@ -1,15 +1,13 @@
 import React, {useEffect} from 'react';
 import {Container, Title} from '../../assets/styleds';
 import {CustomButton} from '../../components';
-import {Text} from 'react-native'
+import {Text} from 'react-native';
 import {firbaseMethods} from '../../methods';
 
-
-
 export const ProfileComponent = ({navigation, userData, getProfile}) => {
-    useEffect(() => {
-        getProfile();
-    }, []);
+  useEffect(() => {
+    getProfile();
+  }, []);
   return (
     <Container>
       <Title> Perfil</Title>
@@ -26,4 +24,3 @@ export const ProfileComponent = ({navigation, userData, getProfile}) => {
     </Container>
   );
 };
-
