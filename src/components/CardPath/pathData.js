@@ -17,7 +17,7 @@ const pathData = [
       'Mostrar su informacion',
       'Evaluar profesionales',
     ],
-    nav: false,
+    nav: true,
   },
 ];
 export default pathData;
