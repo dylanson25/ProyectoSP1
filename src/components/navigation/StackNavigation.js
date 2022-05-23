@@ -6,7 +6,7 @@ import {TabNavigator} from './TabNavigation';
 
 const Stack = createNativeStackNavigator();
 
-const listScreen = [
+const listScreens = [
   {name: 'Login', component: Login},
   {name: 'Path', component: Path},
   {name: 'Register', component: Register},
@@ -14,13 +14,29 @@ const listScreen = [
   {name: 'Main', component: TabNavigator},
 ];
 
-const screens = listScreen.map(({name, component}, key) => (
+const screens = listScreens.map(({name, component}, key) => (
   <Stack.Screen key={key} name={name} component={component} />
 ));
 
 export const StackNavigator = () => {
-  const [isFirstLaunch, setIsFirstLaunch] = useState(null);
-    
+  // const [isFirstLaunch, setIsFirstLaunch] = useState(null);
+  // useEffect(() => {
+  //   isFirstLaunch === null ? setIsFirstLaunch(true) : setIsFirstLaunch(false);
+  // },[]);
+  
+  // let screens = null;
+  
+  // if (isFirstLaunch === null) {
+  //   return null;
+  // } else if (isFirstLaunch === true) {
+  //   screens = listScreensWithOnboard.map(({name, component}) => (
+  //     <Stack.Screen key={name} name={name} component={component} />
+  //   ));
+  // } else {
+  //   screens = listScreens.map(({name, component}) => (
+  //     <Stack.Screen key={name} name={name} component={component} />
+  //   ));
+  // }
   return (
     <NavigationContainer
       initialRouteName="Login"
