@@ -1,4 +1,4 @@
-import {StackNavigator} from '.';
-import {TabNavigator} from '.';
+import {StackNavigator} from './StackNavigation';
+import {TabNavigator} from './TabNavigation';
 
 export {StackNavigator, TabNavigator};

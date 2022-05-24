@@ -17,25 +17,32 @@ const listProItems = [
 ];
 
 const tabList = (type == 'CommonUser' ? listCommontItems : listProItems).map(
-  ({key, name, component, icon}) => (
-    <Tab.Screen
-      key={key}
-      name={name}
-      component={component}
-      options={{
-        /**
-         * tabBarLabel: color por definir,
-         * abBarActiveTintColor: color por definir,
-         * abBarInactiveTintColor: color por definir,
-         */
-        tabBarIcon: ({focused}) => (
-          <Icon color={focused ? 'black' : 'white'} name={icon} size={24} />
-        ),
-      }}
-    />
-  ),
+  ({key, name, component, icon}) => {
+    console.log(name)
+    return (
+      <Tab.Screen
+        key={key}
+        name={name}
+        component={component}
+        options={{
+          
+           tabBarLabel: '#17A1A2',
+           abBarActiveTintColor: '#17A1A2',
+           abBarInactiveTintColor: '#17A1A2',
+           
+          tabBarIcon: ({focused}) => (
+            <Icon color={focused ? 'black' : 'white'} name={icon} size={24} />
+          ),
+        }}
+      />
+    );
+  },
 );
 
 export const TabNavigator = () => (
-  <Tab.Navigator screenOptions={{header: () => null}}>{tabList}</Tab.Navigator>
+  <>
+    <Tab.Navigator screenOptions={{header: () => null}}>
+      {tabList}
+    </Tab.Navigator>
+  </>
 );
