@@ -2,37 +2,45 @@ import React, {useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Profile, CardProList, EditProCard, Login} from '../../screens/index';
-import Auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 import {firbaseMethods} from '../../methods';
 
 const Tab = createBottomTabNavigator();
+const home = [
+  {
+    key: 1,
+    name: 'Home',
+    component: CardProList,
+    icon: 'address-book',
+  },
+];
 
 export const TabNavigator = () => {
   const [type, setType] = useState(null);
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
+  const [listItems, setItems] = useState(home);
+ 
+  const onAuthStateChanged = user => {
     user && setType(firbaseMethods.getType());
-    setUser(Auth().currentUser);
-    console.log(type);
+    setItems([
+      ...home,
+      {
+        key: 2,
+        name: 'Perfil',
+        component: user ? Profile : Login,
+        icon: 'user-circle',
+      },
+    ]);
+  };
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
   }, []);
-
-  const listCommontItems = [
-    {key: 1, name: 'Home', component: CardProList, icon: 'address-book'},
-    {
-      key: 2,
-      name: 'Perfil',
-      component: user ? Profile : Login,
-      icon: 'user-circle',
-    },
-  ];
 
   const listProItems = [
     {key: 3, name: 'EditProCard', component: EditProCard, icon: 'money-check'},
-    ...listCommontItems,
+    ...listItems,
   ];
-
-  const commonTabList = (type ? listProItems : listCommontItems).map(
+  const tabList = (type === true ? listProItems : listItems).map(
     ({key, name, component, icon}) => {
       return (
         <Tab.Screen
@@ -53,7 +61,7 @@ export const TabNavigator = () => {
   return (
     <>
       <Tab.Navigator screenOptions={{header: () => null}}>
-        {commonTabList}
+        {tabList}
       </Tab.Navigator>
     </>
   );

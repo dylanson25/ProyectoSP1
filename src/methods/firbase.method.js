@@ -31,7 +31,7 @@ export const firbaseMethods = {
         .then(({user: {emailVerified}}) => {
           if (emailVerified) {
             resolve('User signed in!');
-            navigation.navigate('Main', {screen: 'Perfil'});
+            // navigation.navigate('Main', {screen: 'Perfil'});
           } else {
             resolve('Email user is not verify!');
             verifyUser(navigation);
