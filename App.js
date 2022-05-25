@@ -1,12 +1,13 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import Navigate from './src/components/navigation/navigate';
 import whitRedux from './src/redux/index'
+
+import { StackNavigator } from './src/components/navigation/StackNavigation';
+
 const App = () => {
   return (
-      <NavigationContainer>
-        <Navigate />
-      </NavigationContainer>
+    <>
+      <StackNavigator />
+    </>
   );
 };
 

@@ -16,7 +16,6 @@ const Login = ({navigation}) => {
   useAuthChecker(navigation);
   return (
     <Container>
-      
       <Title>Mental Colima</Title>
       <CustomInput
         name="email"
@@ -43,6 +42,11 @@ const Login = ({navigation}) => {
       <CustomButton
         title="CREAR CUENTA"
         onPress={() => navigation.navigate('Path')}
+        bg="#FFDEDC"
+      />
+      <CustomButton
+        title="ENTRAR SIN CUENTA"
+        onPress={() => navigation.navigate('Main', {screen: 'Home'})}
         bg="#FFDEDC"
       />
     </Container>
