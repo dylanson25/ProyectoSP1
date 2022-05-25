@@ -29,10 +29,9 @@ export const firbaseMethods = {
       auth()
         .signInWithEmailAndPassword(email, pswrd)
         .then(({user: {emailVerified}}) => {
-          console.log(emailVerified);
           if (emailVerified) {
             resolve('User signed in!');
-            navigation.navigate('Profile');
+            navigation.navigate('Main', {screen: 'Perfil'});
           } else {
             resolve('Email user is not verify!');
             verifyUser(navigation);
@@ -67,6 +66,19 @@ export const firbaseMethods = {
       })
       .catch(console.log);
   },
+  getType: async () => {
+    return await firestore()
+      .collection('users')
+      .doc(auth().currentUser.uid)
+      .get()
+      .then(documentSnapshot => {
+        if (documentSnapshot.exists) {
+          console.log(documentSnapshot.data().type)
+          return documentSnapshot.data().type;
+        }
+      })
+      .catch(console.log); 
+  },
 };
 
 const verifyUser = navigation => {
@@ -90,7 +102,7 @@ const informationData = (doc, data) => {
   const {email, userName, firstName, secondName} = data;
   if (doc === 'CommonUser') {
     return {
-      type: 'CommonUser',
+      type: false,
       Nombres: userName || auth().currentUser.displayName,
       Email: email || auth().currentUser.email,
       PrimerApellido: firstName,
@@ -98,7 +110,7 @@ const informationData = (doc, data) => {
     };
   } else {
     return {
-      type: 'ProfessionalUser',
+      type: true,
       Nombres: userName || auth().currentUser.displayName,
       Email: email || auth().currentUser.email,
       PrimerApellido: firstName,
