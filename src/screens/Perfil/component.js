@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
-import {Container, Title} from '../../assets/styleds';
-import {CustomButton} from '../../components';
-import {Text} from 'react-native';
+import {Container} from '../../assets/styleds';
+import {ProfileBtn, PerfilInfo} from '../../components';
 import {firbaseMethods} from '../../methods';
 
 export const ProfileComponent = ({navigation, userData, getProfile}) => {
@@ -10,7 +9,15 @@ export const ProfileComponent = ({navigation, userData, getProfile}) => {
   }, []);
   return (
     <Container>
-      <Title> Perfil</Title>
+      <PerfilInfo data={userData} />
+      <ProfileBtn icon='feather-alt' text='Editar perfil' />
+      <ProfileBtn icon='key' text='Cambiar contraseña' />
+      <ProfileBtn icon='sign-out-alt' text='Cerrar sesion' />
+    </Container>
+  );
+}; 
+{
+  /* <Title> Perfil</Title>
       <Text>{userData.type}</Text>
       <Text>{userData.Nombres}</Text>
       <Text>{userData.PrimerApellido}</Text>
@@ -21,6 +28,5 @@ export const ProfileComponent = ({navigation, userData, getProfile}) => {
         title="Cerrar sesión"
         onPress={() => firbaseMethods.LogOut(navigation)}
       />
-    </Container>
-  );
-};
+    */
+}

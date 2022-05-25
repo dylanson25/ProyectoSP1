@@ -1,10 +1,11 @@
-import CustomButton from './CustomButton/customButton';
+import CustomButton from './CustomButtons/customButton';
+import  ProfileBtn from './CustomButtons/ProfileButtons';
 import CustomInput from './CustomInput/inputComponent';
 import InputCedula from './InputCedula/inputCedula';
 import { RadioButton } from './RadioButton/RadioButons';
 import CardPath from './CardPath/CardPath';
 import pathData from './CardPath/pathData';
-
+import PerfilInfo from './PerfilInfo/PerfilInfo';
 import MessageToVerify from './VerifyUser/MessageToVerify';
 export {
     CustomInput,
@@ -13,5 +14,7 @@ export {
     RadioButton,
     MessageToVerify,
     CardPath,
-    pathData
+    pathData,
+    ProfileBtn,
+    PerfilInfo
 }

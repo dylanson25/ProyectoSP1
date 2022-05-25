@@ -17,3 +17,25 @@ export const TxtBtn = styled.Text`
   text-align: center;
   color: ${props => props.color || 'black'};
 `;
+
+export const Container = styled.TouchableOpacity`
+  width: 80%;
+  height: 12%;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 12px;
+`
+export const Circle = styled.View`
+  background-color: #F1B5B5;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  width: 16%;
+  height: 70%;
+`
+export const Texto = styled.Text`
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 15px;
+  color: black;
+`

@@ -22,10 +22,8 @@ export const TabNavigator = () => {
   const onAuthStateChanged = user => {
     user && firbaseMethods.getType(user.uid).then(setType); 
     setItems([ 
-
       ...home,
       {
-
         key: 2,
         name: 'Perfil',
         component: user ? Profile : Login,
