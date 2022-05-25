@@ -20,10 +20,12 @@ export const TabNavigator = () => {
   const [listItems, setItems] = useState(home);
  
   const onAuthStateChanged = user => {
-    user && setType(firbaseMethods.getType());
-    setItems([
+    user && firbaseMethods.getType(user.uid).then(setType); 
+    setItems([ 
+
       ...home,
       {
+
         key: 2,
         name: 'Perfil',
         component: user ? Profile : Login,

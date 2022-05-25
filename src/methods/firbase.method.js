@@ -31,7 +31,6 @@ export const firbaseMethods = {
         .then(({user: {emailVerified}}) => {
           if (emailVerified) {
             resolve('User signed in!');
-            // navigation.navigate('Main', {screen: 'Perfil'});
           } else {
             resolve('Email user is not verify!');
             verifyUser(navigation);
@@ -66,16 +65,14 @@ export const firbaseMethods = {
       })
       .catch(console.log);
   },
-  getType: async () => {
+  getType: async (uid) => {
     return await firestore()
       .collection('users')
-      .doc(auth().currentUser.uid)
+      .doc(uid)
       .get()
       .then(documentSnapshot => {
         if (documentSnapshot.exists) {
-          console.log(documentSnapshot.data().type)
-          return documentSnapshot.data().type;
-        }
+          return documentSnapshot.data().type;        }
       })
       .catch(console.log); 
   },
