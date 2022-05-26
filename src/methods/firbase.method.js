@@ -51,7 +51,7 @@ export const firbaseMethods = {
     });
   },
   LogOut: navigation => {
-    auth().signOut().then(navigation.navigate('Login'));
+    auth().signOut().then(navigation.push('Login'));
   },
   getProfile: async () => {
     return await firestore()

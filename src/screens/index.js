@@ -1,9 +1,9 @@
 import Login from './login.screen';
 import Path from './path.screen';
 import Register from './register.screen';
-import { Profile } from './Perfil';
+import { Profile, EditProfile, ChangePswrd } from './Perfil';
 import  Verify  from './verifyUser.screen';
-import CardProList from './CardProList';
+import CardProList from './cardProList.screen';
 import EditProCard from './editProCard.screen';
 export {
     Login,
@@ -12,5 +12,7 @@ export {
     Verify,
     Profile,
     CardProList,
-    EditProCard
+    EditProCard,
+    EditProfile,
+    ChangePswrd
 }

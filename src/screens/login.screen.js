@@ -24,6 +24,7 @@ const Login = ({navigation}) => {
           pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
         }}
         control={control}
+        title='Correo electronico'
         placeholder="Correo electronico"
         icon="envelope"
       />
@@ -31,6 +32,7 @@ const Login = ({navigation}) => {
         name="pswrd"
         rules={{required: 'Falta ingresar la contraseña'}}
         control={control}
+        title='Contraseña'
         placeholder="Contraseña"
         icon="lock"
       />
