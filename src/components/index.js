@@ -7,6 +7,7 @@ import CardPath from './CardPath/CardPath';
 import pathData from './CardPath/pathData';
 import PerfilInfo from './PerfilInfo/PerfilInfo';
 import MessageToVerify from './VerifyUser/MessageToVerify';
+import MessageToReset from './ResetPswrdInfo/MessageToVerify';
 export {
     CustomInput,
     CustomButton,
@@ -16,5 +17,6 @@ export {
     CardPath,
     pathData,
     ProfileBtn,
-    PerfilInfo
+    PerfilInfo,
+    MessageToReset
 }

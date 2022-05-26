@@ -1,11 +1,18 @@
-import React from "react";
-import { Container } from "../../assets/styleds";
-import {Text} from 'react-native'
+import React from 'react';
+import {Container} from '../../assets/styleds';
+import {CustomButton, MessageToReset} from '../../components';
+import {firbaseMethods} from '../../methods';
 
 export const ChangePswrdComponent = ({navigation, userData}) => {
-    return(
-        <Container>
-            <Text>Cambio de contraseña</Text>
-        </Container>
-    )
-}
+  return (
+    <Container>
+      <MessageToReset email={userData.Email} />
+      <CustomButton
+        title={'Cambiar contraseña'}
+        onPress={() => {
+          firbaseMethods.resetPasword().then(() => firbaseMethods.LogOut());
+        }}
+      />
+    </Container>
+  );
+};

@@ -4,7 +4,7 @@ export const Conteiner = styled.View`
   align-items: center;
   justify-content: center;
   width: 90%;
-  height: 90%;
+  height: ${props => props.hg || '90%'};
 `;
 export const RealoadBtn = styled.TouchableOpacity`
   align-items: center;
