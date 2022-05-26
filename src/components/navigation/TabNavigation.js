@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Profile, CardProList, EditProCard, Login} from '../../screens/index';
+import {CardProList, EditProCard, Login} from '../../screens/index';
 import auth from '@react-native-firebase/auth';
 import {firbaseMethods} from '../../methods';
+import {ProfileScreens} from '.'
 
 const Tab = createBottomTabNavigator();
 const home = [
@@ -26,7 +27,7 @@ export const TabNavigator = () => {
       {
         key: 2,
         name: 'Perfil',
-        component: user ? Profile : Login,
+        component: user ? ProfileScreens : Login,
         icon: 'user-circle',
       },
     ]);

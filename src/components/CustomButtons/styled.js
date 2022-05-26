@@ -23,8 +23,8 @@ export const Container = styled.TouchableOpacity`
   height: 12%;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 12px;
-`
+  margin-bottom: 25px;
+  `
 export const Circle = styled.View`
   background-color: #F1B5B5;
   align-items: center;
@@ -32,6 +32,18 @@ export const Circle = styled.View`
   border-radius: 100px;
   width: 16%;
   height: 70%;
+`
+export const Line = styled.View`
+  border: solid 1px gray;
+  width: 80%;
+  align-self: center;
+  elevation: 6;
+`
+export const ColRow = styled.View`
+  flex: 1;
+  width: 100%;
+  align-items: center;
+  flex-direction: ${props=> props.fd || 'column'};
 `
 export const Texto = styled.Text`
   font-size: 25px;

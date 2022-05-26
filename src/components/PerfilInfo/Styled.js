@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const Conteiner = styled.View`
-  width: 80%;
+  width: 90%;
   align-items: center;
   justify-content: center;
   margin: 3%;

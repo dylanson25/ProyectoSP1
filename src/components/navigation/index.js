@@ -1,4 +1,4 @@
 import {StackNavigator} from './StackNavigation';
 import {TabNavigator} from './TabNavigation';
-
-export {StackNavigator, TabNavigator};
+import ProfileScreens from './ProfileNavigation';
+export {StackNavigator, TabNavigator, ProfileScreens};
