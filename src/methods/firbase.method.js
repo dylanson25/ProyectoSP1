@@ -79,8 +79,7 @@ export const firbaseMethods = {
   resetPasword:  () => {
     const user = auth().currentUser;
     auth().sendPasswordResetEmail(user.email).then((response)=>{
-      console.log('enviado')
-      console.log(response)
+      //send mail
     }).catch(err => {
       console.log('reser pasword ' + err)
     })
