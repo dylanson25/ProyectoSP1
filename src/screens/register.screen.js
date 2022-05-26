@@ -1,8 +1,18 @@
 import React from 'react';
-import { Container, AcomodingBox, ScrollView, Title, SubTitle } from '../assets/styleds';
+import {
+  Container,
+  AcomodingBox,
+  ScrollView,
+  Title,
+  SubTitle,
+} from '../assets/styleds';
 import {CustomInput, CustomButton, InputCedula} from '../components';
 import {useForm} from 'react-hook-form';
-import { pswrd_rules, verifyCedula, EMAIL_REGEX } from '../utils/validation_function';
+import {
+  pswrd_rules,
+  verifyCedula,
+  EMAIL_REGEX,
+} from '../utils/validation_function';
 import {firbaseMethods} from '../methods';
 
 const handleSignUp = (navigation, data) => {
@@ -20,11 +30,12 @@ const Register = ({navigation, route}) => {
     <ScrollView>
       <Container>
         <Title>Mental Colima</Title>
-        <SubTitle>Profesional</SubTitle>
+        <SubTitle>{route.params ? 'Profesional' : 'Usario comun'}</SubTitle>
         <CustomInput
           rules={{required: 'Falta ingresar el nombre'}}
           name="userName"
           control={control}
+          title="Nombre(s)"
           placeholder="Nombre(s)"
           icon="user"
         />
@@ -35,6 +46,7 @@ const Register = ({navigation, route}) => {
             }}
             name="firstName"
             control={control}
+            title="Primer apellido"
             placeholder="Primer apellido"
             width="45%"
           />
@@ -42,6 +54,7 @@ const Register = ({navigation, route}) => {
             rules={{required: false}}
             name="secondName"
             control={control}
+            title="Segundo apellido"
             placeholder="Segundo apellido"
             width="45%"
           />
@@ -57,6 +70,7 @@ const Register = ({navigation, route}) => {
             }}
             name="cedula"
             control={control}
+            title="Cedula"
             placeholder="Cedula"
             reset={reset}
           />
@@ -65,13 +79,18 @@ const Register = ({navigation, route}) => {
         <CustomInput
           rules={{
             required: 'Falta ingresar el email',
-            pattern: {value: EMAIL_REGEX, message: 'Email invalido',  minLength: {
-              value: 7,
-              message: 'La cedula debe contener al menos 7 caracteres',
-            },},
+            pattern: {
+              value: EMAIL_REGEX,
+              message: 'Email invalido',
+              minLength: {
+                value: 7,
+                message: 'La cedula debe contener al menos 7 caracteres',
+              },
+            },
           }}
           name="email"
           control={control}
+          title='Correo electronico'
           placeholder="Correo electronico"
           icon="envelope"
         />
@@ -79,6 +98,7 @@ const Register = ({navigation, route}) => {
           rules={pswrd_rules}
           name="pswrd"
           control={control}
+          title="Contraseña"
           placeholder="Contraseña"
           icon="lock"
         />
@@ -89,6 +109,7 @@ const Register = ({navigation, route}) => {
           }}
           name="confirmPswrd"
           control={control}
+          title="Confirmar contraseña"
           placeholder="Confirmar contraseña"
           icon="lock"
         />

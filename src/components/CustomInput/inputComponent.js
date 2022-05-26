@@ -18,7 +18,7 @@ const CustumInput = props => {
         <>
           <Conteiner width={props.width}>
             <TxtCont fd={props.fd}>
-              <TxtInfo>{props.placeholder} </TxtInfo>
+              <TxtInfo>{props.title} </TxtInfo>
               {error && (
                 <TxtInfo color="red">{error.message || 'Error'}</TxtInfo>
               )}
@@ -31,6 +31,7 @@ const CustumInput = props => {
                 onBlur={onBlur}
                 secureTextEntry={hidePswrd}
                 placeholder={props.placeholder}
+                placeholderTextColor={props.black && 'black'}
               />
               {props.icon === 'lock' && (
                 <TouchableOpacity

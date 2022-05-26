@@ -1,20 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {Container} from '../../assets/styleds';
+import {Container, AcomodingBox} from '../../assets/styleds';
 import {CustomInput, CustomButton} from '../../components';
 import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../../utils/validation_function';
 
-import {Text} from 'react-native';
-const handleLogIn = (navigation, {email, pswrd}) => {
-    
-  };
+const handleLogIn = (navigation, {email, pswrd}) => {};
 
 export const EditComponent = ({navigation, userData}) => {
-  const {control, handleSubmit} = useForm();
+    const {Nombres, PrimerApellido, SegundoApellido, Email} = userData;
+    const {control, handleSubmit} = useForm();
   return (
     <Container>
-      <Icon name="user-edit" size={70} color={'#87B7DF'} />
+      <Icon style={{margin: 25}} name="user-edit" size={85} color={'#87B7DF'} />
       <CustomInput
         name="email"
         rules={{
@@ -22,15 +20,46 @@ export const EditComponent = ({navigation, userData}) => {
           pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
         }}
         control={control}
-        placeholder="Correo electronico"
+        title="Correo electronico"
+        placeholder={Email}
         icon="envelope"
+        black
       />
-    
+      <CustomInput
+        rules={{required: 'Falta ingresar el nombre'}}
+        name="userName"
+        control={control}
+        title="Nombre(s)"
+        placeholder={Nombres}
+        icon="user"
+        black
+      />
+      <AcomodingBox>
+        <CustomInput
+          rules={{
+            required: 'Falta ingresar el primer apellido',
+          }}
+          name="firstName"
+          control={control}
+          title="Primer apellido"
+          placeholder={PrimerApellido}
+          width="45%"
+          black
+        />
+        <CustomInput
+          rules={{required: false}}
+          name="secondName"
+          control={control}
+          title='Segundo apellido'
+          placeholder={SegundoApellido}
+          width="45%"
+          black
+        />
+      </AcomodingBox>
       <CustomButton
-        title="INICIAR SESIÓN"
+        title="Guardar"
         onPress={handleSubmit(data => handleLogIn(navigation, data))}
       />
-      
     </Container>
   );
 };

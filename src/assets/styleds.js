@@ -7,7 +7,6 @@ export const Title = styled.Text`
   line-height: 58px;
   color: #ff9f9f;
 `;
-
 export const SubTitle = styled.Text`
   font-weight: 400;
   font-size: 32px;
