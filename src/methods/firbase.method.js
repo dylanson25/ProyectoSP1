@@ -76,6 +76,14 @@ export const firbaseMethods = {
       })
       .catch(console.log); 
   },
+  resetPasword:  () => {
+    const user = auth().currentUser;
+    auth().sendPasswordResetEmail(user.email).then((response)=>{
+      //send mail
+    }).catch(err => {
+      console.log('reser pasword ' + err)
+    })
+  },
 };
 
 const verifyUser = navigation => {

@@ -5,7 +5,7 @@ export const useAuthChecker = navigation => {
   const onAuthStateChanged = user => {
     user &&
       (user.emailVerified
-        ? navigation.navigate('Main', {screen: 'Home'})
+        ? navigation.push('Main', {screen: 'Home'})
         : navigation.navigate('Verify'));
   };
   useEffect(() => {
