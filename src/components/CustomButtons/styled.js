@@ -19,25 +19,19 @@ export const TxtBtn = styled.Text`
 `;
 
 export const Container = styled.TouchableOpacity`
-  width: 80%;
-  height: 12%;
+  width: 360px;
+  height: 80px;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   `
 export const Circle = styled.View`
-  background-color: #F1B5B5;
+  background-color: #6CB4B8;
   align-items: center;
   justify-content: center;
   border-radius: 100px;
   width: 16%;
   height: 70%;
-`
-export const Line = styled.View`
-  border: solid 1px gray;
-  width: 80%;
-  align-self: center;
-  elevation: 6;
 `
 export const ColRow = styled.View`
   flex: 1;

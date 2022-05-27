@@ -1,22 +1,17 @@
 import React from 'react';
-import {Conteiner, Texto, Type, EmailCont} from './Styled';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import {Conteiner, Texto, Back} from './Styled';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const PerfilInfo = ({data}) => {
-  const {Nombres, PrimerApellido, SegundoApellido, Email, type} = data;
+  const {Nombres, PrimerApellido, SegundoApellido} = data;
   return (
     <Conteiner>
-      <Icon name="user-alt" size={70} color="#87B7DF" />
-      <Texto>
+      <Back>
+        <Icon name="user-o" size={100} color="black" />
+      </Back>
+      <Texto size="25px">
         {Nombres} {PrimerApellido} {SegundoApellido}
       </Texto>
-      <Type>
-        <Texto color="white" size='20px'>{type ? 'Profesional' : 'Usario comun'}</Texto>
-      </Type>
-      <EmailCont>
-        <Icon name="envelope" size={30} color="black" />
-        <Texto size='20px'>{Email}</Texto>
-      </EmailCont>
     </Conteiner>
   );
 };

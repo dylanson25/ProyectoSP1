@@ -15,17 +15,23 @@ export const SubTitle = styled.Text`
 `;
 
 export const Container = styled.View` 
+  flex: auto;
   height: 100%;
   margin: 0;
   justify-content: center;
   align-items: center;
-  background: #dfe2db;
+  background: white;
+  `;
+export const ContBtn = styled.View` 
+  height: 60%;
+  margin: 0;
+  justify-content: center;
+  background: white;
   `;
   
   export const ScrollView = styled.ScrollView`
-  border:1px solid black;
   flex: 1;
-  background: #dfe2db;
+  background: white;
 `;
 
 export const AcomodingBox = styled.View`

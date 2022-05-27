@@ -15,12 +15,11 @@ export const RealoadBtn = styled.TouchableOpacity`
   border-radius: 20px;
   margin-top: 20px;
   elevation: 6;
-  `;
+`;
 
 export const TextInfo = styled.Text`
-    text-align: justify;
-    font-size: 25px;
-    margin: 15px;
-    color: ${props => props.color || 'black'};
-`
-
+  text-align: justify;
+  font-size: ${props => props.size || '25px'};
+  margin: 15px;
+  color: ${props => props.color || 'black'};
+`;

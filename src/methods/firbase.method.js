@@ -65,24 +65,37 @@ export const firbaseMethods = {
       })
       .catch(console.log);
   },
-  getType: async (uid) => {
+  getType: async uid => {
     return await firestore()
       .collection('users')
       .doc(uid)
       .get()
       .then(documentSnapshot => {
         if (documentSnapshot.exists) {
-          return documentSnapshot.data().type;        }
+          return documentSnapshot.data().type;
+        }
       })
-      .catch(console.log); 
+      .catch(console.log);
   },
-  resetPasword:  () => {
+  resetPasword: () => {
     const user = auth().currentUser;
-    auth().sendPasswordResetEmail(user.email).then((response)=>{
-      //send mail
-    }).catch(err => {
-      console.log('reser pasword ' + err)
-    })
+    auth()
+      .sendPasswordResetEmail(user.email)
+      .then(response => {
+        //send mail
+      })
+      .catch(err => {
+        console.log('reser pasword ' + err);
+      });
+  },
+  resetEmail: (navigation, newEmail) => {
+    const user = auth().currentUser;
+    user
+      .updateEmail(newEmail)
+      .then(() => {
+        verifyUser(navigation)
+      })
+      .catch(err => console.log(`Cambio fallido ${err}`));
   },
 };
 
@@ -91,7 +104,7 @@ const verifyUser = navigation => {
   user
     .sendEmailVerification()
     .then(() => {
-      navigation.navigate('Verify');
+      navigation.push('Verify');
     })
     .catch(error => {
       console.log(error);
