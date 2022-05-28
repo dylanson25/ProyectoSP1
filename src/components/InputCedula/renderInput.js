@@ -35,7 +35,6 @@ const RenderCedula = ({name, control, rules, trash, setCedulas}) => {
                     setCedulas(currentCedulas =>
                       currentCedulas.filter(element => element.name != name),
                     );
-                    // reset({}, {keepValues: true});
                   }}>
                   <Icon name={'backspace'} size={20} color={'black'} />
                 </TouchableOpacity>

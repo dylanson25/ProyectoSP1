@@ -7,10 +7,9 @@ import {
   ScrollView,
 } from '../assets/styleds';
 import {
-  InputCardPro,
   PerfilInfo,
   CustomButton,
-  InputMiltiline,
+  ControllerInput
 } from '../components';
 import {useForm} from 'react-hook-form';
 import { firestoreMethods } from '../methods/firestore.method';
@@ -18,7 +17,7 @@ import { firestoreMethods } from '../methods/firestore.method';
 
 const handleLoadCard = (imagen, nombre, data) => {
   console.log(data)
-  firestoreMethods.loadData(imagen, nombre, data)
+  // firestoreMethods.loadData(imagen, nombre, data)
 };
 
 const EditProCard = ({navigation}) => {
@@ -39,8 +38,16 @@ const EditProCard = ({navigation}) => {
               SegundoApellido: 'Godines',
             }}
           />
-          <InputMiltiline />
-          <InputCardPro
+          <ControllerInput
+            inputMult
+            name="descripcion"
+            rules={{
+              required: 'Falta ingresar la descripción',
+            }}
+            control={control}
+          />
+          <ControllerInput
+            inputCards
             name="ubicacion"
             rules={{
               required: 'Falta ingresar la ubicación',
@@ -49,7 +56,8 @@ const EditProCard = ({navigation}) => {
             placeholder="Ubicación"
             icon="map-marker-alt"
           />
-          <InputCardPro
+          <ControllerInput
+            inputCards
             name="modalidad"
             rules={{
               required: 'Falta ingresar la modalidad',
@@ -58,7 +66,8 @@ const EditProCard = ({navigation}) => {
             placeholder="Modalidad"
             icon="laptop-house"
           />
-          <InputCardPro
+          <ControllerInput
+            inputCards
             name="precio"
             rules={{
               required: 'Falta ingresar la precio',
@@ -66,15 +75,22 @@ const EditProCard = ({navigation}) => {
             control={control}
             placeholder="Precio"
             icon="money-bill-wave"
+            ktype='numeric'
           />
-          <InputCardPro
+          <ControllerInput
+            inputCards
             name="telefono"
             rules={{
               required: 'Falta ingresar la telefono',
+              minLength: {
+                value: 10,
+                message: 'Numero de telefono no valido',
+              },
             }}
             control={control}
             placeholder="Telefono"
             icon="phone"
+            ktype='phone-pad'
           />
         </CardEdit>
         <CustomButton title={'Guardar'} onPress={handleSubmit(data => handleLoadCard('Ximena Montserrat', 'imagenate esta',data))} />

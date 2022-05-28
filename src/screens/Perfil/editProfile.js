@@ -1,24 +1,28 @@
 import React from 'react';
 import {Container, ScrollView} from '../../assets/styleds';
-import {CustomButton, CustomInput, MessageToResetEmail} from '../../components';
+import {
+  CustomButton,
+  ControllerInput,
+  MessageToResetEmail,
+} from '../../components';
 import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../../utils/validation_function';
 import {firbaseMethods} from '../../methods';
-import Auth from '@react-native-firebase/auth'
+import Auth from '@react-native-firebase/auth';
 
-
-const handleResetEmail = (navigation, { email }) => {
+const handleResetEmail = (navigation, {email}) => {
   firbaseMethods.resetEmail(navigation, email);
 };
 
-export const EditComponent = ( { navigation, userData}) => {
+export const EditComponent = ({navigation, userData}) => {
   const {control, handleSubmit} = useForm();
-  
+
   return (
     <ScrollView>
       <Container>
         <MessageToResetEmail email={Auth().currentUser.email} />
-        <CustomInput
+        <ControllerInput
+          inputForms
           name="email"
           rules={{
             required: 'Falta ingresar el email',
