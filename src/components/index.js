@@ -9,6 +9,7 @@ import PerfilInfo from './PerfilInfo/PerfilInfo';
 import MessageToVerify from './VerifyUser/MessageToVerify';
 import MessageToReset from './ResetPswrdInfo/MessageToVerify';
 import MessageToResetEmail from './ResetEmailInfo/ResetEmailInfo';
+import InputCardPro from './CustomInput/InputCardPro';
 export {
     CustomInput,
     CustomButton,
@@ -20,5 +21,6 @@ export {
     ProfileBtn,
     PerfilInfo,
     MessageToReset,
-    MessageToResetEmail
+    MessageToResetEmail,
+    InputCardPro
 }

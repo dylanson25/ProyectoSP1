@@ -20,7 +20,7 @@ export const ProfileComponent = ({navigation, userData, getProfile}) => {
               screen: 'Perfil',
               params: {
                 screen: 'Editar información',
-                email: email
+                email: email,
               },
             });
           }}
@@ -37,6 +37,7 @@ export const ProfileComponent = ({navigation, userData, getProfile}) => {
             });
           }}
         />
+
         <ProfileBtn
           icon="sign-out-alt"
           text="Cerrar sesion"
