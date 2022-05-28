@@ -6,6 +6,18 @@ export const Conteiner = styled.View`
   margin-top: 1%;
 `;
 
+export const ContMLine = styled.View`
+  width: ${props => props.width || '90%'};
+  margin-bottom: 2%;
+  margin-top: 1%;
+`;
+export const TextInput = styled.TextInput`
+  border: solid 1px black;
+  border-radius: 10px;
+  padding-left: 2%;
+  height: 70px;
+`;
+
 export const Input = styled.View`
   margin-top: 3px;
   align-items: center;

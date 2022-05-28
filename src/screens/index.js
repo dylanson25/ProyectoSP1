@@ -5,6 +5,7 @@ import { Profile, EditProfile, ChangePswrd } from './Perfil';
 import  Verify  from './verifyUser.screen';
 import CardProList from './cardProList.screen';
 import EditProCard from './editProCard.screen';
+import InputCardPro from '../components/CustomInput/InputCardPro';
 export {
     Login,
     Path,
@@ -14,5 +15,6 @@ export {
     CardProList,
     EditProCard,
     EditProfile,
-    ChangePswrd
+    ChangePswrd,
+    InputCardPro
 }
