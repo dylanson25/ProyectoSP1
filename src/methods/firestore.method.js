@@ -2,10 +2,9 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 export const firestoreMethods = {
-  loadData: (nombre, imagen, data) => {
+  loadData: (imagen, nombre,data) => {
     const uid = auth().currentUser.uid;
-    const {ubicacion, modalidad, precio, telefono} = data;
-    // descripcion,
+    const {ubicacion, modalidad, precio, telefono, descripcion} = data;
     firestore()
       .collection('CardsPro')
       .doc(uid)
@@ -15,7 +14,7 @@ export const firestoreMethods = {
           firestore().collection('CardsPro').doc(uid).set({
             imagen: imagen,
             nombre: nombre,
-            // descripcion: descripcion,
+            descripcion: descripcion,
             ubicacion: ubicacion,
             modalidad: modalidad,
             precio: precio,
@@ -26,7 +25,7 @@ export const firestoreMethods = {
           firestore().collection('CardsPro').doc(uid).update({
             imagen: imagen,
             nombre: nombre,
-            // descripcion: descripcion,
+            descripcion: descripcion,
             ubicacion: ubicacion,
             modalidad: modalidad,
             precio: precio,

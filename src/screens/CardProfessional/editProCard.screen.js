@@ -1,27 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Container,
   StackDatos,
   StackTitle,
   CardEdit,
   ScrollView,
-} from '../assets/styleds';
-import {
-  PerfilInfo,
-  CustomButton,
-  ControllerInput
-} from '../components';
+} from '../../assets/styleds';
+import {PerfilInfo, CustomButton, ControllerInput} from '../../components';
 import {useForm} from 'react-hook-form';
-import { firestoreMethods } from '../methods/firestore.method';
+import {firestoreMethods} from '../../methods/firestore.method';
 
+const CardProfessional = ({userData, getProfile}) => {
+  const handleLoadCard = (imagen, data) => {
+    const nombre = `${userData.Nombres} ${userData.PrimerApellido} ${userData.SegundoApellido}`;
+    firestoreMethods.loadData(imagen, nombre, data);
+  };
 
-const handleLoadCard = (imagen, nombre, data) => {
-  console.log(data)
-  // firestoreMethods.loadData(imagen, nombre, data)
-};
-
-const EditProCard = ({navigation}) => {
   const {control, handleSubmit} = useForm();
+  useEffect(() => {
+    getProfile();
+  }, []);
 
   return (
     <ScrollView>
@@ -33,9 +31,9 @@ const EditProCard = ({navigation}) => {
           <PerfilInfo
             isCard
             data={{
-              Nombres: 'Ximena',
-              PrimerApellido: 'Velasco',
-              SegundoApellido: 'Godines',
+              Nombres: userData.Nombres,
+              PrimerApellido: userData.PrimerApellido,
+              SegundoApellido: userData.SegundoApellido,
             }}
           />
           <ControllerInput
@@ -75,7 +73,7 @@ const EditProCard = ({navigation}) => {
             control={control}
             placeholder="Precio"
             icon="money-bill-wave"
-            ktype='numeric'
+            ktype="numeric"
           />
           <ControllerInput
             inputCards
@@ -90,12 +88,15 @@ const EditProCard = ({navigation}) => {
             control={control}
             placeholder="Telefono"
             icon="phone"
-            ktype='phone-pad'
+            ktype="phone-pad"
           />
         </CardEdit>
-        <CustomButton title={'Guardar'} onPress={handleSubmit(data => handleLoadCard('Ximena Montserrat', 'imagenate esta',data))} />
+        <CustomButton
+          title={'Guardar'}
+          onPress={handleSubmit(data => handleLoadCard('Esta es una imagen', data))}
+        />
       </Container>
     </ScrollView>
   );
 };
-export default EditProCard;
+export default CardProfessional;

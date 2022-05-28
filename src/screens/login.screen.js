@@ -51,7 +51,7 @@ const Login = ({navigation}) => {
       />
       <CustomButton
         title="ENTRAR SIN CUENTA"
-        onPress={() => navigation.navigate('Main', {screen: 'Home'})}
+        onPress={() => navigation.push('Main', {screen: 'Home'})}
         bg="#FFDEDC"
       />
     </Container>

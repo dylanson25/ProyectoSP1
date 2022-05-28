@@ -1,11 +1,10 @@
 import Login from './login.screen';
 import Path from './path.screen';
-import Register from './register.screen';
 import { Profile, EditProfile, ChangePswrd } from './Perfil';
-import  Verify  from './verifyUser.screen';
 import CardProList from './cardProList.screen';
-import EditProCard from './editProCard.screen';
-import InputCardPro from '../components/CustomInput/InputCardPro';
+import Register from './register.screen';
+import  Verify  from './verifyUser.screen';
+import {EditProCard} from './CardProfessional';
 export {
     Login,
     Path,
@@ -16,5 +15,4 @@ export {
     EditProCard,
     EditProfile,
     ChangePswrd,
-    InputCardPro
 }
