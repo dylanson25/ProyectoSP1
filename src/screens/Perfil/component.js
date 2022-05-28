@@ -20,7 +20,7 @@ export const ProfileComponent = ({navigation, userData, getProfile}) => {
               screen: 'Perfil',
               params: {
                 screen: 'Editar información',
-                email: email,
+                email: 'email',
               },
             });
           }}

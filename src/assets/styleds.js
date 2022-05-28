@@ -15,16 +15,23 @@ export const SubTitle = styled.Text`
 `;
 
 export const Container = styled.View`
-  flex: auto;
-  height: 100%;
-  margin: 0;
-  justify-content: ${props => props.jc || 'center'};
-  align-items: center;
-  background: white;
+flex: 1;
+height: 100%;
+margin: 0;
+justify-content: ${props => props.jc || 'center'};
+align-items: center;
+background: white;
+border:solid 1px black;
+padding-bottom: 10%;
+`;
+
+export const ScrollView = styled.ScrollView`
+  width: 100%;
+  background-color: white;
 `;
 
 export const StackDatos = styled.View`
-  height: 12%;
+  height: 10%;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -32,15 +39,10 @@ export const StackDatos = styled.View`
 `;
 
 export const StackTitle = styled.Text`
-  font-weight: 500;
+  font-weight: 400;
   font-size: 32px;
   line-height: 35px;
   color: black;
-`;
-
-export const ScrollView = styled.ScrollView`
-  flex: 1;
-  background: white;
 `;
 
 export const AcomodingBox = styled.View`
@@ -63,11 +65,12 @@ export const Input = styled.View`
 `;
 
 export const CardEdit = styled.View`
-  margin: auto;
+  margin: 2%;
+  margin-top: 4%;
   padding-top: 4%;
   padding-bottom: 4%;
   align-items: center;
-  width: 80%;
+  width: 90%;
   border: solid 2px black;
   elevation: 3;
 `;
