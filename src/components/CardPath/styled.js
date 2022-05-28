@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { colors } from '../../assets/colors';
 
 export const Conteiner = styled.View`
   justify-content: center;
@@ -32,7 +33,7 @@ export const ContPriviliges = styled.View`
 export const RealoadBtn = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
-  background-color: #F1B5B5;
+  background-color: ${colors.buttons};
   width: 25%;
   height: 15%;
   border-radius: 20px;

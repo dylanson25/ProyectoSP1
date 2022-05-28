@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
 export {TxtInfo} from '../components/CustomInput/styled';
+import { colors } from './colors';
 // padding: ${props => props.Padd || '6%'};
 export const Title = styled.Text`
   font-weight: 500;
   font-size: 48px;
   line-height: 58px;
-  color: #ff9f9f;
+  color: ${colors.color_titulos};
 `;
 export const SubTitle = styled.Text`
   font-weight: 400;

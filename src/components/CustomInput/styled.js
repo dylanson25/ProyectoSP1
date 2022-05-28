@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { colors } from '../../assets/colors';
 
 export const Conteiner = styled.View`
   width: ${props => props.width || '90%'};
@@ -23,7 +24,7 @@ export const Input = styled.View`
   align-items: center;
   flex-direction: row;
   height: 48px;
-  background: #ffdedc;
+  background: ${colors.inputs};
   border: 1px solid;
   border-radius: 10px;
   padding-start: 10px;

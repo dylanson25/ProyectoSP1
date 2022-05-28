@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { colors } from '../../assets/colors';
 // F1B5B5
 export const CustomBtn = styled.TouchableOpacity`
   justify-content: center;
@@ -6,7 +7,7 @@ export const CustomBtn = styled.TouchableOpacity`
   margin-top: 2%;
   width: 80%;
   height: 48px;
-  background: ${props => props.bg || '#F1B5B5'};
+  background: ${colors.buttons};
   border-radius: 10px;
   elevation: 6;
 `;
