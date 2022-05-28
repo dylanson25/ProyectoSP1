@@ -5,14 +5,14 @@ export const Conteiner = styled.View`
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #BEDCE3;
+  background-color: ${props => props.bg || '#BEDCE3'};
 `;
 export const Back = styled.View`
   background-color: #6287A2;
   align-items: center;
   justify-content: center;
-  width: 35%;
-  height: 65%;
+  width: ${props => props.wd || '35%'};
+  height: ${props => props.hg || '65%'};
   border-radius: 100px;
 `;
 

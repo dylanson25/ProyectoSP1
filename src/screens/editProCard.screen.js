@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, StackDatos, StackTitle, CardEdit} from '../assets/styleds';
-import {InputCardPro} from '../components';
+import {InputCardPro, PerfilInfo, CustomButton} from '../components';
 import {useForm} from 'react-hook-form';
 
 const handleLogIn = (navigation, {email, pswrd}) => {};
@@ -11,9 +11,17 @@ const EditProCard = ({navigation}) => {
   return (
     <Container jc="flex-start">
       <StackDatos>
-        <StackTitle>Pantalla de edición</StackTitle>
+        <StackTitle>Mis datos</StackTitle>
       </StackDatos>
       <CardEdit>
+        <PerfilInfo
+          isCard
+          data={{
+            Nombres: 'Ximena',
+            PrimerApellido: 'Velasco',
+            SegundoApellido: 'Godines',
+          }}
+        />
         <InputCardPro
           name="ubicacion"
           rules={{
@@ -55,6 +63,7 @@ const EditProCard = ({navigation}) => {
           icon="phone"
         />
       </CardEdit>
+      <CustomButton title={'Guardar'} onPress={()=>{}}/>
     </Container>
   );
 };

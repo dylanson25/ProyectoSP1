@@ -1,14 +1,10 @@
-import React, {useState} from 'react';
-import {Conteiner, Input, TxtInfo, TxtCont} from './styled';
+import React from 'react';
+import {Conteiner, Input, TxtInfo} from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {TextInput, TouchableOpacity} from 'react-native';
+import {TextInput} from 'react-native';
 import {Controller} from 'react-hook-form';
 
 const InputCardPro = props => {
-  const [hidePswrd, setHidePswrd] = useState(
-    props.icon == 'lock' ? true : false,
-  );
-
   return (
     <Controller
       control={props.control}
@@ -25,7 +21,6 @@ const InputCardPro = props => {
                 value={value}
                 onChangeText={onChange}
                 onBlur={onBlur}
-                secureTextEntry={hidePswrd}
                 placeholder={props.placeholder}
                 placeholderTextColor={'black'}
               />

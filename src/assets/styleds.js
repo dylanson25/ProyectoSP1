@@ -64,16 +64,17 @@ export const Input = styled.View`
 
 export const CardEdit = styled.View`
   margin: auto;
+  padding-top: 4%;
+  padding-bottom: 4%;
   align-items: center;
   width: 80%;
   border: solid 2px black;
   elevation: 3;
-`
+`;
 
-export const ContBtn = styled.View` 
+export const ContBtn = styled.View`
   height: 60%;
   margin: 0;
   justify-content: center;
   background: white;
-  `;
-  
+`;
