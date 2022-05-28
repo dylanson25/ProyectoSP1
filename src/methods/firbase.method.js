@@ -93,7 +93,7 @@ export const firbaseMethods = {
     user
       .updateEmail(newEmail)
       .then(() => {
-        verifyUser(navigation)
+        verifyUser(navigation);
       })
       .catch(err => console.log(`Cambio fallido ${err}`));
   },

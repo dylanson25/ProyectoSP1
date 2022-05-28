@@ -6,10 +6,20 @@ import {
   CardEdit,
   ScrollView,
 } from '../assets/styleds';
-import {InputCardPro, PerfilInfo, CustomButton, InputMiltiline} from '../components';
+import {
+  InputCardPro,
+  PerfilInfo,
+  CustomButton,
+  InputMiltiline,
+} from '../components';
 import {useForm} from 'react-hook-form';
+import { firestoreMethods } from '../methods/firestore.method';
 
-const handleLogIn = (navigation, {email, pswrd}) => {};
+
+const handleLoadCard = (imagen, nombre, data) => {
+  console.log(data)
+  firestoreMethods.loadData(imagen, nombre, data)
+};
 
 const EditProCard = ({navigation}) => {
   const {control, handleSubmit} = useForm();
@@ -36,42 +46,38 @@ const EditProCard = ({navigation}) => {
               required: 'Falta ingresar la ubicación',
             }}
             control={control}
-            title="Correo electronico"
             placeholder="Ubicación"
             icon="map-marker-alt"
           />
           <InputCardPro
-            name="Modalidad"
+            name="modalidad"
             rules={{
-              required: 'Falta ingresar la ubicación',
+              required: 'Falta ingresar la modalidad',
             }}
             control={control}
-            title="Correo electronico"
             placeholder="Modalidad"
             icon="laptop-house"
           />
           <InputCardPro
-            name="Precio"
+            name="precio"
             rules={{
-              required: 'Falta ingresar la ubicación',
+              required: 'Falta ingresar la precio',
             }}
             control={control}
-            title="Correo electronico"
             placeholder="Precio"
             icon="money-bill-wave"
           />
           <InputCardPro
-            name="Telefono"
+            name="telefono"
             rules={{
-              required: 'Falta ingresar la ubicación',
+              required: 'Falta ingresar la telefono',
             }}
             control={control}
-            title="Correo electronico"
             placeholder="Telefono"
             icon="phone"
           />
         </CardEdit>
-        <CustomButton title={'Guardar'} onPress={() => {}} />
+        <CustomButton title={'Guardar'} onPress={handleSubmit(data => handleLoadCard('Ximena Montserrat', 'imagenate esta',data))} />
       </Container>
     </ScrollView>
   );
