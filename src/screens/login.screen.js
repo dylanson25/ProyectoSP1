@@ -1,14 +1,15 @@
 import React from 'react';
 import {Container, Title, TxtInfo} from '../assets/styleds';
-import {CustomInput, CustomButton} from '../components';
+import {ControllerInput, CustomButton} from '../components';
 import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../utils/validation_function';
 import {firbaseMethods} from '../methods';
 import {useAuthChecker} from '../hooks/firbase';
- 
+
 const handleLogIn = (navigation, {email, pswrd}) => {
   firbaseMethods
-    .logInWithEmailAndPassword(email, pswrd, navigation).catch(err => console.log(err));
+    .logInWithEmailAndPassword(email, pswrd, navigation)
+    .catch(err => console.log(err));
 };
 
 const Login = ({navigation}) => {
@@ -17,22 +18,24 @@ const Login = ({navigation}) => {
   return (
     <Container>
       <Title>Mental Colima</Title>
-      <CustomInput
+      <ControllerInput
+        inputForms
         name="email"
         rules={{
           required: 'Falta ingresar el email',
           pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
         }}
         control={control}
-        title='Correo electronico'
+        title="Correo electronico"
         placeholder="Correo electronico"
         icon="envelope"
       />
-      <CustomInput
+      <ControllerInput
+        inputForms
         name="pswrd"
         rules={{required: 'Falta ingresar la contraseña'}}
         control={control}
-        title='Contraseña'
+        title="Contraseña"
         placeholder="Contraseña"
         icon="lock"
       />
@@ -48,7 +51,7 @@ const Login = ({navigation}) => {
       />
       <CustomButton
         title="ENTRAR SIN CUENTA"
-        onPress={() => navigation.navigate('Main', {screen: 'Home'})}
+        onPress={() => navigation.push('Main', {screen: 'Home'})}
         bg="#FFDEDC"
       />
     </Container>

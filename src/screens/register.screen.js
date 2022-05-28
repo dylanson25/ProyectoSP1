@@ -6,7 +6,7 @@ import {
   Title,
   SubTitle,
 } from '../assets/styleds';
-import {CustomInput, CustomButton, InputCedula} from '../components';
+import {ControllerInput, CustomButton, InputCedula} from '../components';
 import {useForm} from 'react-hook-form';
 import {
   pswrd_rules,
@@ -31,7 +31,8 @@ const Register = ({navigation, route}) => {
       <Container>
         <Title>Mental Colima</Title>
         <SubTitle>{route.params ? 'Profesional' : 'Usario comun'}</SubTitle>
-        <CustomInput
+        <ControllerInput
+          inputForms
           rules={{required: 'Falta ingresar el nombre'}}
           name="userName"
           control={control}
@@ -40,7 +41,8 @@ const Register = ({navigation, route}) => {
           icon="user"
         />
         <AcomodingBox>
-          <CustomInput
+          <ControllerInput
+            inputForms
             rules={{
               required: 'Falta ingresar el primer apellido',
             }}
@@ -50,7 +52,8 @@ const Register = ({navigation, route}) => {
             placeholder="Primer apellido"
             width="45%"
           />
-          <CustomInput
+          <ControllerInput
+            inputForms
             rules={{required: false}}
             name="secondName"
             control={control}
@@ -76,7 +79,8 @@ const Register = ({navigation, route}) => {
           />
         )}
 
-        <CustomInput
+        <ControllerInput
+          inputForms
           rules={{
             required: 'Falta ingresar el email',
             pattern: {
@@ -90,11 +94,12 @@ const Register = ({navigation, route}) => {
           }}
           name="email"
           control={control}
-          title='Correo electronico'
+          title="Correo electronico"
           placeholder="Correo electronico"
           icon="envelope"
         />
-        <CustomInput
+        <ControllerInput
+          inputForms
           rules={pswrd_rules}
           name="pswrd"
           control={control}
@@ -102,7 +107,8 @@ const Register = ({navigation, route}) => {
           placeholder="Contraseña"
           icon="lock"
         />
-        <CustomInput
+        <ControllerInput
+          inputForms
           rules={{
             required: 'Falta confirmar la contraseña',
             validate: value => value == pwd || 'La contraseña no coincide',

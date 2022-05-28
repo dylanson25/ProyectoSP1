@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
+import { colors } from '../../assets/colors';
 
 export const Conteiner = styled.View`
   flex-direction: row;
