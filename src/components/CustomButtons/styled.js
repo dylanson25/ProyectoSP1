@@ -5,7 +5,7 @@ export const CustomBtn = styled.TouchableOpacity`
   justify-content: center;
   margin-bottom: 2%;
   margin-top: 2%;
-  width: 80%;
+  width: 60%;
   height: 48px;
   background: ${colors.buttons};
   border-radius: 10px;

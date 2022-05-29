@@ -4,7 +4,7 @@ import {ContMLine, TextInput, TxtInfo} from './styled';
 const InputMultiline = (onChange, value, error) => {
   return (
     <ContMLine>
-      {error && <TxtInfo color="red">{error.message || 'Error'}</TxtInfo>}
+      {error && <TxtInfo  fz='15px' color="red">{error.message || 'Error'}</TxtInfo>}
       <TextInput
         multiline
         value={value}

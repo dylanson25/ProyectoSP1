@@ -1,12 +1,13 @@
 import styled from 'styled-components/native';
 export {TxtInfo} from '../components/CustomInput/styled';
 import {colors} from './colors';
-// padding: ${props => props.Padd || '6%'};
+
 export const Title = styled.Text`
   font-weight: 500;
-  font-size: 48px;
-  line-height: 58px;
-  color: ${colors.color_titulos};
+  font-size: ${props => props.fs || '40px'};
+  line-height: 72px;
+  text-align: center;
+  color: ${props => (props.fs ? colors.fondo_usuario : colors.color_titulos)};
 `;
 export const SubTitle = styled.Text`
   font-weight: 400;
@@ -22,13 +23,11 @@ export const Container = styled.View`
   justify-content: ${props => props.jc || 'center'};
   align-items: center;
   background: white;
-  border: solid 1px black;
   padding-bottom: 10%;
 `;
 
 export const ScrollView = styled.ScrollView`
   width: 100%;
-  border: solid 2px black;
   background-color: white;
 `;
 
@@ -50,7 +49,9 @@ export const StackTitle = styled.Text`
 export const AcomodingBox = styled.View`
   width: 90%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 `;
 
 export const Input = styled.View`
@@ -78,8 +79,15 @@ export const CardEdit = styled.View`
 `;
 
 export const ContBtn = styled.View`
-  height: 60%;
+  height: 55%;
   margin: 0;
   justify-content: center;
   background: white;
+`;
+export const Logo = styled.Image.attrs(props => ({
+  source: require('./img/logo.png'),
+}))`
+  margin-top: 50px;
+  width: ${props => props.wd || '190px'};
+  height: ${props => props.hg || '190px'};
 `;

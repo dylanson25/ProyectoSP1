@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Title, TxtInfo} from '../assets/styleds';
+import {Container, Title, TxtInfo, Logo} from '../assets/styleds';
 import {ControllerInput, CustomButton} from '../components';
 import {useForm} from 'react-hook-form';
 import {EMAIL_REGEX} from '../utils/validation_function';
@@ -17,43 +17,48 @@ const Login = ({navigation}) => {
   useAuthChecker(navigation);
   return (
     <Container>
+      <Logo/>
       <Title>Mental Colima</Title>
-      <ControllerInput
-        inputForms
-        name="email"
-        rules={{
-          required: 'Falta ingresar el email',
-          pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
-        }}
-        control={control}
-        title="Correo electronico"
-        placeholder="Correo electronico"
-        icon="envelope"
-      />
-      <ControllerInput
-        inputForms
-        name="pswrd"
-        rules={{required: 'Falta ingresar la contraseña'}}
-        control={control}
-        title="Contraseña"
-        placeholder="Contraseña"
-        icon="lock"
-      />
-      <CustomButton
-        title="INICIAR SESIÓN"
-        onPress={handleSubmit(data => handleLogIn(navigation, data))}
-      />
-      <TxtInfo>- ¿No tienes cuenta? -</TxtInfo>
-      <CustomButton
-        title="CREAR CUENTA"
-        onPress={() => navigation.navigate('Path')}
-        bg="#FFDEDC"
-      />
-      <CustomButton
-        title="ENTRAR SIN CUENTA"
-        onPress={() => navigation.push('Main', {screen: 'Home'})}
-        bg="#FFDEDC"
-      />
+      <>
+        <ControllerInput
+          inputForms
+          name="email"
+          rules={{
+            required: 'Falta ingresar el email',
+            pattern: {value: EMAIL_REGEX, message: 'Email invalido'},
+          }}
+          control={control}
+          title="Correo electronico"
+          icon="envelope"
+        />
+        <ControllerInput
+          inputForms
+          name="pswrd"
+          rules={{required: 'Falta ingresar la contraseña'}}
+          control={control}
+          title="Contraseña"
+          icon="lock"
+        />
+        <CustomButton
+          title="Iniciar sesión"
+          onPress={handleSubmit(data => handleLogIn(navigation, data))}
+        />
+      </>
+
+      <TxtInfo mt='20px'>¿No tienes cuenta?</TxtInfo>
+      <TxtInfo
+        mt={'0px'}
+        color={'#5C7D95'}
+        style={{textDecorationLine: 'underline'}}
+        onPress={() => navigation.navigate('Path')}>
+        Crear cuenta
+      </TxtInfo>
+      <TxtInfo
+        color={'#5E89DD'}
+        style={{textDecorationLine: 'underline'}}
+        onPress={() => navigation.push('Main', {screen: 'Home'})}>
+        Entrar sin cuenta
+      </TxtInfo>
     </Container>
   );
 };
