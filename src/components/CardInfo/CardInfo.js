@@ -18,7 +18,7 @@ const CardInfo = ({data}) => {
 
   return (
     <Conteiner>
-      <Imagen source={{uri: 'https://reactjs.org/logo-og.png'}} />
+      <Imagen source={{uri: 'https://www.trecebits.com/wp-content/uploads/2019/02/Persona-1-445x445.jpg'}} />
       <TextName>
           Ximena velasca godines
       </TextName>

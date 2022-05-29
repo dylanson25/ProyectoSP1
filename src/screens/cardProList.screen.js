@@ -1,6 +1,6 @@
 import React from 'react';
 import {CardInfo} from '../components';
-import {Container} from '../assets/styleds';
+import {Container, ScrollView} from '../assets/styleds';
 
 const CardProList = ({navigation}) => {
   const data = [

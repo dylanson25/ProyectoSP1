@@ -6,6 +6,10 @@ export const Conteiner = styled.View`
   align-items: center;
   width: 95%;
   height: auto;
+  max-height: 700px;
+  min-height: 500px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   border: solid black 2px;
   background-color: white;
   elevation: 6;

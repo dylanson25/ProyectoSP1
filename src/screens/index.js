@@ -1,7 +1,7 @@
 import Login from './login.screen';
 import Path from './path.screen';
 import { Profile, EditProfile, ChangePswrd } from './Perfil';
-import CardProList from './cardProList.screen';
+import {CardProList} from './CardList';
 import Register from './register.screen';
 import  Verify  from './verifyUser.screen';
 import {EditProCard} from './CardProfessional';
