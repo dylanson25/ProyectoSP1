@@ -3,6 +3,7 @@ import {GET_PROFILE} from '../actionTypes';
 
 const initialState = {
   userData: {},
+  allCardsPro: [],
   loading: false,
 };
 
@@ -24,7 +25,6 @@ export default (state = initialState, action) => {
         userData: response,
         loading: false,
       });
-
     default:
       return state;
   }

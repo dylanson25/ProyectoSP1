@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 export {TxtInfo} from '../components/CustomInput/styled';
-import { colors } from './colors';
+import {colors} from './colors';
 // padding: ${props => props.Padd || '6%'};
 export const Title = styled.Text`
   font-weight: 500;
@@ -16,18 +16,19 @@ export const SubTitle = styled.Text`
 `;
 
 export const Container = styled.View`
-flex: 1;
-height: 100%;
-margin: 0;
-justify-content: ${props => props.jc || 'center'};
-align-items: center;
-background: white;
-border:solid 1px black;
-padding-bottom: 10%;
+  flex: 1;
+  height: 100%;
+  margin: 0;
+  justify-content: ${props => props.jc || 'center'};
+  align-items: center;
+  background: white;
+  border: solid 1px black;
+  padding-bottom: 10%;
 `;
 
 export const ScrollView = styled.ScrollView`
   width: 100%;
+  border: solid 2px black;
   background-color: white;
 `;
 

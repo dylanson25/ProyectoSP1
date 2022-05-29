@@ -38,7 +38,7 @@ export const TabNavigator = () => {
   }, []);
 
   const listProItems = [
-    {key: 3, name: 'EditProCard', component: EditProCard, icon: 'money-check'},
+    {key: 3, name: 'Mis datos', component: EditProCard, icon: 'money-check'},
     ...listItems,
   ];
   const tabList = (type === true ? listProItems : listItems).map(
