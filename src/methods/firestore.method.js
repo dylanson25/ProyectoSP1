@@ -12,7 +12,7 @@ export const firestoreMethods = {
       .then(response => {
         if (!response.exists) {
           firestore().collection('CardsPro').doc(uid).set({
-            // imagen: imagen,
+            imagen: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
             nombre: nombre,
             descripcion: descripcion,
             ubicacion: ubicacion,
@@ -23,7 +23,7 @@ export const firestoreMethods = {
           });
         } else {
           firestore().collection('CardsPro').doc(uid).update({
-            // imagen: imagen,
+            imagen: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
             nombre: nombre,
             descripcion: descripcion,
             ubicacion: ubicacion,

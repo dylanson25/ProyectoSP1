@@ -2,13 +2,13 @@ import styled from 'styled-components/native';
 import { colors } from '../../assets/colors';
 
 export const Conteiner = styled.View`
-  width: ${props => props.width || '90%'};
+  width: ${props => props.width || '85%'};
   margin-bottom: 2%;
   margin-top: 1%;
 `;
 
 export const ContMLine = styled.View`
-  width: ${props => props.width || '90%'};
+  width: ${props => props.width || '85%'};
   margin-bottom: 2%;
   margin-top: 1%;
 `;
@@ -31,9 +31,10 @@ export const Input = styled.View`
 `;
 
 export const TxtInfo = styled.Text`
-  font-weight: bold;
+  font-weight: 400;
+  margin-top: ${props => props.mt || '0px'};
   color: ${props => props.color || '#444444'};
-  font-size: ${props => props.fz || '15px'};
+  font-size: ${props => props.fz || '20px'};
 `;
 
 export const TxtCont = styled.View`
@@ -54,7 +55,7 @@ export const CedulaConteiner = styled.View`
   width: 100%;
 `
 export const InputView = styled.View`
-  width: 75%;
+  width: 72%;
   margin-left: 5px;
 `
 

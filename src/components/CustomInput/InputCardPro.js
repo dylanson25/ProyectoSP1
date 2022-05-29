@@ -6,7 +6,11 @@ import {TextInput} from 'react-native';
 const InputCardPro = (props, onBlur, onChange, value, error) => {
   return (
     <Conteiner width={props.width}>
-      {error && <TxtInfo color="red">{error.message || 'Error'}</TxtInfo>}
+      {error && (
+        <TxtInfo fz="15px" color="red">
+          {error.message || 'Error'}
+        </TxtInfo>
+      )}
       <Input style={{backgroundColor: 'white'}}>
         <Icon name={props.icon} size={20} color={'black'} />
         <TextInput

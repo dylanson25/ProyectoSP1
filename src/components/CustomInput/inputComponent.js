@@ -12,11 +12,16 @@ const CustumInput = (props, onBlur, onChange, value, error) => {
     <Conteiner width={props.width}>
       <TxtCont fd={props.fd}>
         <TxtInfo>{props.title} </TxtInfo>
-        {error && <TxtInfo color="red">{error.message || 'Error'}</TxtInfo>}
+        {error && (
+          <TxtInfo fz="15px" color="red">
+            {error.message || 'Error'}
+          </TxtInfo>
+        )}
       </TxtCont>
       <Input>
         <Icon name={props.icon} size={20} color={'black'} />
         <TextInput
+          style={{width: 330}}
           value={value}
           onChangeText={onChange}
           onBlur={onBlur}

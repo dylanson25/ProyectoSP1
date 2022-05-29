@@ -5,6 +5,8 @@ import {
   ScrollView,
   Title,
   SubTitle,
+  Logo,
+  TxtInfo,
 } from '../assets/styleds';
 import {ControllerInput, CustomButton, InputCedula} from '../components';
 import {useForm} from 'react-hook-form';
@@ -29,39 +31,33 @@ const Register = ({navigation, route}) => {
   return (
     <ScrollView>
       <Container>
-        <Title>Mental Colima</Title>
-        <SubTitle>{route.params ? 'Profesional' : 'Usario comun'}</SubTitle>
+        <Logo wh="90px" hg="140px" />
+        <Title fs="30px">Mental Colima</Title>
+        <SubTitle>{route.params ? 'Profesional' : 'Usario'}</SubTitle>
         <ControllerInput
           inputForms
           rules={{required: 'Falta ingresar el nombre'}}
           name="userName"
           control={control}
           title="Nombre(s)"
-          placeholder="Nombre(s)"
           icon="user"
         />
-        <AcomodingBox>
-          <ControllerInput
-            inputForms
-            rules={{
-              required: 'Falta ingresar el primer apellido',
-            }}
-            name="firstName"
-            control={control}
-            title="Primer apellido"
-            placeholder="Primer apellido"
-            width="45%"
-          />
-          <ControllerInput
-            inputForms
-            rules={{required: false}}
-            name="secondName"
-            control={control}
-            title="Segundo apellido"
-            placeholder="Segundo apellido"
-            width="45%"
-          />
-        </AcomodingBox>
+        <ControllerInput
+          inputForms
+          rules={{
+            required: 'Falta ingresar el primer apellido',
+          }}
+          name="firstName"
+          control={control}
+          title="Primer apellido"
+        />
+        <ControllerInput
+          inputForms
+          rules={{required: false}}
+          name="secondName"
+          control={control}
+          title="Segundo apellido"
+        />
 
         {route.params && (
           <InputCedula
@@ -74,7 +70,6 @@ const Register = ({navigation, route}) => {
             name="cedula"
             control={control}
             title="Cedula"
-            placeholder="Cedula"
             reset={reset}
           />
         )}
@@ -95,7 +90,6 @@ const Register = ({navigation, route}) => {
           name="email"
           control={control}
           title="Correo electronico"
-          placeholder="Correo electronico"
           icon="envelope"
         />
         <ControllerInput
@@ -104,7 +98,6 @@ const Register = ({navigation, route}) => {
           name="pswrd"
           control={control}
           title="Contraseña"
-          placeholder="Contraseña"
           icon="lock"
         />
         <ControllerInput
@@ -116,13 +109,28 @@ const Register = ({navigation, route}) => {
           name="confirmPswrd"
           control={control}
           title="Confirmar contraseña"
-          placeholder="Confirmar contraseña"
           icon="lock"
         />
         <CustomButton
           onPress={handleSubmit(value => handleSignUp(navigation, value))}
-          title="CREAR CUENTA"
+          title="Crear cuenta"
         />
+        <AcomodingBox>
+          <TxtInfo>¿Ya tienes cuenta?{'  '}</TxtInfo>
+          <TxtInfo
+            mt={'0px'}
+            color={'#5C7D95'}
+            style={{textDecorationLine: 'underline'}}
+            onPress={() => navigation.navigate('Login')}>
+            Iniciar sesión
+          </TxtInfo>
+        </AcomodingBox>
+        <TxtInfo
+          color={'#5E89DD'}
+          style={{textDecorationLine: 'underline'}}
+          onPress={() => navigation.push('Main', {screen: 'Home'})}>
+          Entrar sin cuenta
+        </TxtInfo>
       </Container>
     </ScrollView>
   );

@@ -3,6 +3,7 @@ import { colors } from '../../assets/colors';
 
 export const Conteiner = styled.View`
   flex: auto;
+  padding-top: 7px;
   width: 100%;
   align-items: center;
   justify-content: center;

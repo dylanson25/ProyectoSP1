@@ -10,7 +10,7 @@ const MessageToVerify = ({navigation, email}) => {
       <TextInfo>
         Para mayor seguridad se a enviado un mensaje a el correo electrónico:
       </TextInfo>
-      <TextInfo color="#2A9EFF"> {email} </TextInfo>
+      <TextInfo  style={{textDecorationLine: 'underline'}} color="#2A9EFF"> {email} </TextInfo>
       <TextInfo>
         Favor de verificar el correo para poder iniciar sesión
       </TextInfo>
