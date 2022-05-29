@@ -5,17 +5,18 @@ export const Conteiner = styled.View`
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 45%;
+  height: 47%;
   margin-top: 15px;
   margin-bottom: 10px;
   border-radius: 15px;
   border: solid black 3px;
   background-color: white;
+  elevation: 6;
 `;
 
 export const Title = styled.Text`
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 25px;
 `;
 export const TextInfo = styled.Text`
@@ -36,6 +37,7 @@ export const RealoadBtn = styled.TouchableOpacity`
   background-color: ${colors.buttons};
   width: 25%;
   height: 15%;
+  margin-bottom: 3%;
   border-radius: 20px;
   margin-top: 20px;
   elevation: 6;
