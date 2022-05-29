@@ -1,3 +1,1 @@
-import {getProfile} from './user';
-
-export {getProfile};
+export {getProfile} from './user';

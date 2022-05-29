@@ -11,20 +11,19 @@ const Info = ({name, info}) => {
   );
 };
 
-const CardInfo = ({data}) => {
+const CardInfo = ({data, name, desripcion, img}) => {
   const renderInfo = data.map(({name, info}, key) => (
     <Info key={key} name={name} info={info} />
   ));
 
   return (
     <Conteiner>
-      <Imagen source={{uri: 'https://www.trecebits.com/wp-content/uploads/2019/02/Persona-1-445x445.jpg'}} />
+      <Imagen source={{uri: img}} />
       <TextName>
-          Ximena velasca godines
+          {name}
       </TextName>
       <TextInfo>
-        Esto es una prueba de una descrpcion de una especialista en la salud
-        mental
+       {desripcion}
       </TextInfo>
       {renderInfo}
     </Conteiner>

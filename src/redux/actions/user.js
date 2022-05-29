@@ -15,4 +15,3 @@ export const getProfile = () => async dispatch => {
     return dispatch(error(action));
   }
 };
-
