@@ -15,12 +15,15 @@ export const firbaseMethods = {
               createAditionalData(data),
               verifyUser(navigation),
             )
-            .catch(error => {
-              if (error.code === 'auth/email-already-in-use') {
-                Alert.alert('El correo ya esta eb uso');
-                reject('That email address is already in use!');
-              }
-            });
+        }).catch(error => {
+          
+          if (error.code === 'auth/email-already-in-use') {
+            Alert.alert('El correo ya esta en uso');
+            reject('That email address is already in use!');
+          } else if (error.code === 'auth/invalid-email') {
+            Alert.alert('El correo no es valido');
+            reject('That email address is invalid!');
+          }
         });
     });
   },

@@ -10,7 +10,8 @@ export const ChangePswrdComponent = ({navigation, userData}) => {
       <CustomButton
         title={'Cambiar contraseña'}
         onPress={() => {
-          firbaseMethods.resetPasword().then(() => firbaseMethods.LogOut());
+          firbaseMethods.resetPasword()
+          firbaseMethods.LogOut(navigation)
         }}
       />
     </Container>
